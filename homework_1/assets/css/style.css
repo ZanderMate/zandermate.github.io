@@ -1,0 +1,147 @@
+#wrapper{
+    width: 960px;
+    margin: 0 auto;
+}
+
+h2{
+    color:#4aaaa5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 15px;
+    margin-right: 25px;
+    border-bottom: 3px solid #dddddd;
+    padding-bottom: 15px;
+}
+
+#contentText{
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    padding: 10px;
+    padding-top: 0px;
+    line-height: 2;
+}
+
+#bioImage{
+    float: left;
+    margin-right: 10px;
+    height:250px;
+    margin-left: 10px;
+}
+
+header{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+    width:100%;
+}
+
+footer{
+    background-color: #666666;
+    border-top: 8px solid #4aaaa5;
+    text-align: center;
+    height: 50px;
+    width: 100%
+}
+
+body{
+    background-color: #ffffff;
+    border-color: #dddddd; 
+}
+
+#body1{
+    border: 1px solid #dddddd;
+    width: 960px;
+    margin: 50px auto;
+    background-color: #ffffff
+}
+
+#backgroundPrism{
+    background-image: url("../images/prism/prism.png");
+    min-height: calc(100vh - 170px);
+    border: 1px solid; /*why does removing this break the floating box*/
+}
+
+#copyright{
+    color: #777777;
+    margin-top:15px;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#myLogo{
+    background-color: #4aaaa5;
+    color: whitesmoke;
+    width: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+#about{
+    float: right;
+    position: relative;
+    bottom: 40px;
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-right: #777777 solid;
+}
+
+#portfolio{
+    float: right;
+    position: relative;
+    bottom: 40px;
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-right: #777777 solid;
+}
+
+#contact{
+    float: right;
+    position: relative;
+    bottom: 40px;
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#nameField{
+    width:95%;
+    margin: 0 10px 0 10px;
+}
+
+#emailField{
+    width: 95%;
+    margin: 0 10px 0 10px;
+}
+
+#messageField{
+    width: 95%;
+    margin: 0 10px 0 10px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #4aaaa5;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+.button:hover {
+    background-color: darkcyan;
+}
+
+#inputFields{
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    padding: 10px;
+    padding-top: 0px;
+}
