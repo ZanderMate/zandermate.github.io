@@ -12,6 +12,10 @@ h2{
     padding-bottom: 15px;
 }
 
+a{
+    text-decoration: none;
+}
+
 #contentText{
     color: #777777;
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
