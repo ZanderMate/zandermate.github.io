@@ -12,8 +12,10 @@ h2{
     padding-bottom: 15px;
 }
 
-#row{
-    float: right;
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .pic{
@@ -24,11 +26,12 @@ h2{
     width: 40%;
     background-color: #4aaaa5;
     margin-bottom: 25px;
-    margin-left: 10px;
+    margin-left: 15px;
+    float: left;
   }
   /*w3school*/
   
-  .container {
+.container {
     text-align: center;
     padding: 10px 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
