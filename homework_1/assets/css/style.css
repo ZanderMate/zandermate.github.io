@@ -12,6 +12,31 @@ h2{
     padding-bottom: 15px;
 }
 
+#row{
+    float: right;
+}
+
+.pic{
+    width: 100%;
+}
+
+.picText {
+    width: 40%;
+    background-color: #4aaaa5;
+    margin-bottom: 25px;
+    margin-left: 10px;
+  }
+  /*w3school*/
+  
+  .container {
+    text-align: center;
+    padding: 10px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    font-size: large;
+  }
+  /*w3school*/
+
 a{
     text-decoration: none;
 }
