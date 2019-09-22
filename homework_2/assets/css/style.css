@@ -63,3 +63,7 @@ footer{
 .card-deck{
     padding-right: 30px;
 }
+
+p{
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
