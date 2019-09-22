@@ -32,6 +32,7 @@ h2{
     background-color: #ffffff;
     margin-top: 50px;
     margin-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .backgroundPrism{
@@ -43,4 +44,22 @@ h2{
     width: 960px;
     margin: 0 auto;
     padding: 0 0 0 0;
-    }
+}
+
+label{
+    color: #777777;
+
+}
+
+footer{
+    background-color: #666666;
+    color: #777777;
+}
+
+.col-md-6{
+    padding-bottom: 25px;
+}
+
+.card-deck{
+    padding-right: 30px;
+}
