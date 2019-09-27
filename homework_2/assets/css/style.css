@@ -96,12 +96,8 @@ p{
 }
 
 @media screen and (max-width: 576px) {
-    .smallHeader{
-        display: flex;
-        width:100%;
-    }
-    .bigHeader{
-        display: none;
+    #navLinks{
+        justify-content: center;
     }
     nav{
         max-width: 540px;
@@ -113,12 +109,8 @@ p{
 }
     
 @media screen and (min-width: 576px){
-    .smallHeader{
-        display: none;
-    }
-    .bigHeader{
-        display: flex;
-        width:100%;
+    #navLinks{
+        justify-content: flex-end;
     }
     nav{
         max-width: 540px;
