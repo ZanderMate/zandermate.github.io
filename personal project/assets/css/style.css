@@ -1,0 +1,31 @@
+h1{
+    font-family: 'Chilanka', cursive;
+    color: blanchedalmond;
+}
+
+.navbarLinks{
+    color: blanchedalmond;
+    padding: 7px;
+}
+
+#cardOfTheDay{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.row{
+    margin-top: 15px;
+}
+
+.shopLinks{
+    color: green;
+    text-decoration: none;
+}
+
+li {
+    font-family: 'Acme', sans-serif;
+}
+
+.deckLinks{
+    text-decoration: none;
+    color: blanchedalmond;
+}
