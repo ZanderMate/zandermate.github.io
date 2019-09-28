@@ -1,3 +1,4 @@
+/*Define the card body for portfolio page*/
 .card-body{
     background-color: #4aaaa5;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -11,6 +12,7 @@ a{
     padding: 6px;
 }
 
+/*my name brand defined seperate of rest of navbar*/
 .navbar-brand{
     background-color: #4aaaa5;
     width: 600px;
@@ -40,10 +42,12 @@ h2{
     padding-bottom: 30px;
 }
 
+/*The background image so it can over all of the body*/
 .backgroundPrism{
     background-image: url("../images/prism/prism.png");
 }
 
+/*generic footer that can be placed on all pages, hopefully sticky*/
 .footer{
     width: 100%;
     height: 60px;
@@ -52,6 +56,7 @@ h2{
     border-top: 8px solid #4aaaa5;
 }
 
+/*this footer wasn't working the same as the other ones*/
 .profileFooter{
     width: 100%;
     height: 60px;
@@ -67,6 +72,7 @@ h2{
     background-color: white;
 }
 
+/*just a give a little separation between rows and from the sides*/
 .col-md-6{
     padding-bottom: 25px;
 }
@@ -83,11 +89,13 @@ p{
     flex-direction: row;
 }
 
+/*Gives the color of navbar all across the screen and lets the links and namebrand stay centered*/
 #header{
     width: 100%;
     background-color: white;
 }
 
+/*Define the differences in format for different widths of the screen*/
 @media screen and (max-width: 576px) {
     #navLinks{
         justify-content: center;
