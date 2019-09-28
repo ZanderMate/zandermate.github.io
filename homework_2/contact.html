@@ -6,23 +6,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm justify-content-center bigHeader">
+    <nav class="navbar navbar-expand-sm justify-content-center">
         <h1 class="navbar-brand">Alexander Griep</h1>
-            <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://zandermate.github.io/homework_2/index.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://zandermate.github.io/homework_2/portfolio.html">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://zandermate.github.io/homework_2/contact.html">Contact</a>
-                </li>
-            </ul>
-    </nav>
-    <nav class="navbar navbar-expand-sm justify-content-center smallHeader">
-        <h1 class="navbar-brand">Alexander Griep</h1>
-            <ul class="nav navbar-nav ml-auto w-100 justify-content-center">
+            <ul id="navLinks" class="nav navbar-nav ml-auto w-100">
                 <li class="nav-item">
                     <a class="nav-link" href="https://zandermate.github.io/homework_2/index.html">About</a>
                 </li>
@@ -35,7 +21,7 @@
             </ul>
     </nav>
     <div class="backgroundPrism">
-        <div class="container">
+        <div id="contentContainer" class="container">
            <h2>Contact</h2>
             <form>
                 <div class="form-group">
@@ -55,11 +41,10 @@
             </button>
         </div>
     </div>
-    <footer class="page-footer font-small">
-        <div class="container-fluid text-center text-md-left">
-            <div class="footer-copyright text-center py-3">©Copyright
-            </div>
-        </div>      
-      </footer>
+    <footer class="footer">
+        <div>
+            <div class="text-center text-muted">©Copyright</div> 
+        </div>     
+    </footer>
 </body>
 </html>
