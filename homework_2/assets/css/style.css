@@ -90,6 +90,10 @@ p{
     margin-bottom: 500px;
 }
 
+#contentContainerContact{
+    margin-bottom: 150px;
+}
+
 @media screen and (max-width: 576px) {
     #navLinks{
         justify-content: center;
