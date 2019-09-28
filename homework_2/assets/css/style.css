@@ -42,7 +42,6 @@ h2{
 
 .backgroundPrism{
     background-image: url("../images/prism/prism.png");
-    border: 1px solid;
 }
 
 .footer{
@@ -86,12 +85,9 @@ p{
     flex-direction: row;
 }
 
-#contentContainer{
-    margin-bottom: 500px;
-}
-
-#contentContainerContact{
-    margin-bottom: 150px;
+#header{
+    width: 100%;
+    background-color: white;
 }
 
 @media screen and (max-width: 576px) {
