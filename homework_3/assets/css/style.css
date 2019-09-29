@@ -1,5 +1,7 @@
 .container{
     border: 3px solid black;
+    max-width: 700px;
+    min-height: 400px;
 }
 
 .title{
@@ -8,6 +10,8 @@
 
 .btn{
     background-color: firebrick;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
 }
 
 #contentContainer{
@@ -16,5 +20,10 @@
 }
 
 #background{
-    background-image: url()
+    background-image: url(../images/cork-board.png)
+}
+
+#text{
+    min-height: 200px;
+    min-width: 300px;
 }
