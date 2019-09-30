@@ -55,3 +55,9 @@ for (var i = 0; i < chars; i++){
     }
     document.getElementById("text").value = password;
 }
+
+function clipboard(){
+    document.querySelector("textarea").select(); //select what is in text field
+    var copiedPW = document.execCommand('copy'); //copy the selected field
+    alert("Copied the Password"); //alert the it has been copied
+}
