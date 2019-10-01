@@ -1,17 +1,15 @@
 .container{
     border: 3px solid black;
     max-width: 700px;
-    min-height: 400px;
 }
 
 .title{
-    font-family: 'Notable', sans-serif;
+    font-family: 'Overpass', sans-serif;
 }
 
 .btn{
-    background-color: firebrick;
-    font-family: 'Indie Flower', cursive;
     font-size: 25px;
+    font-family: 'Overpass', sans-serif;
 }
 
 #contentContainer{
@@ -20,7 +18,7 @@
 }
 
 #background{
-    background-image: url(../images/cork-board.png)
+    background-image: url(../images/dark-honeycomb.png)
 }
 
 #text{

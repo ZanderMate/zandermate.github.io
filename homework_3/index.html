@@ -4,13 +4,13 @@
     <title>Random Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Notable&display=swap" rel="stylesheet">
-    <script src="assets/javascript/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Overpass&display=swap" rel="stylesheet">
+    
 </head>
 <body id="background">
-    <div class="container" id="contentContainer">
+    <div class="container p-4" id="contentContainer">
         <div class="row">
-            <h2 class="title text-center col-md-12">Password Generator</h2>
+            <h2 class="title text-center col-md-12">RANDOM PASSWORD GENERATOR</h2>
         </div>
         <div class="row">
             <form class="text-center col-md-12" style="width: 8rem;">
@@ -19,12 +19,13 @@
         </div>
         <div class="row">
             <div class="col-md-6 text-center">
-                <button onclick = "password()" type="button" id="pwButton" class="btn text-white m-3">Generate a Password</button>
+                <button onclick = "password()" type="button" id="pwButton" class="btn text-white bg-dark m-3">Generate a Password</button>
             </div>
             <div class="col-md-6 text-center">
-                <button onclick = "clipboard()" type="button" class="btn text-white m-3">Copy to Clipboard</button>
+                <button onclick = "clipboard()" type="button" class="btn text-white bg-dark m-3">Copy to Clipboard</button>
             </div>
         </div>
     </div>
+    <script src="assets/javascript/script.js"></script>
 </body>
 </html>
