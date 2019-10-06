@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Movie Quiz</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|Kaushan+Script|Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+    <body class="body">
+        <header>
+            <h1 class="container-fluid-nav text-center py-3 mb-20 heading">Movie Trivia Time!</h1>
+            <div class="timeLeft"></div>
+        </header>
+        <div class="container" id="rules">
+            <h3>The Rules of the Quiz:</h3>
+            <ol>
+                <li>
+                    Each question is multiple choice with 4 possible answers.
+                </li>
+                <li>
+                    If you get the question right, you move onto the next question and gain 2 points.
+                </li>
+                <li>
+                    If you get the question wrong, you lose ten seconds from the timer and move onto the next question, gaining no points.
+                </li>
+                <li>
+                    Once you press the 'Begin' button, your timer will start at sixty seconds.
+                </li>
+            </ol>
+            <button type="button" class="btn start">Begin</button>
+        </div>
+        <div class="container" id="quiz" style= "display: none">
+            <h3>Question:</h3>
+            <p class="askQuestion"></p>
+            <ul style="list-style-type:none;">
+                <li>
+                    <button type="button" id="buttonA" class="btn mb-2"></button>
+                </li>
+                <li>
+                    <button type="button" id="buttonB" class="btn mb-2"></button>
+                </li>
+                <li>
+                    <button type="button" id="buttonC" class="btn mb-2"></button>
+                </li>
+                <li>
+                    <button type="button" id="buttonD" class="btn mb-2"></button>
+                </li>
+            </ul>
+        </div>
+        <div id="results" class="container" style="display: none">
+            <p id="pointTotal"></p>
+            <input id="sign-up" placeholder="Your Initials">
+            <button type="button" class="btn" id="submit">Submit</button>
+        </div>
+        <div id="high-scores" style="display: none"></div>
+        <script src="assets/javascript/script.js"></script>
+    </body>
+</html>

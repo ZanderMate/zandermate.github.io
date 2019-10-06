@@ -1,0 +1,22 @@
+.heading{
+    color: firebrick;
+    font-family: 'Kaushan Script', cursive;
+    background-color: cornsilk;
+}
+
+h3{
+    font-family: 'Caesar Dressing', cursive;
+}
+
+.body{
+    background-color: ghostwhite;
+}
+
+.btn{
+    color: whitesmoke;
+    background-color: lightslategrey;
+}
+
+.timeLeft{
+    font-family: 'Press Start 2P', cursive;
+}
