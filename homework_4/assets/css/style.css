@@ -1,4 +1,4 @@
-.heading{
+header{
     color: firebrick;
     font-family: 'Kaushan Script', cursive;
     background-color: cornsilk;
@@ -17,6 +17,11 @@ h3{
     background-color: lightslategrey;
 }
 
-.timeLeft{
+#timeLeft{
     font-family: 'Press Start 2P', cursive;
+    text-align: right;
+}
+
+#rules{
+    margin-top:100px;
 }

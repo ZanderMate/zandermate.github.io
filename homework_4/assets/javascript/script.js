@@ -8,14 +8,14 @@
         //and their scores in order of highest score to lowest score.
     //There also will be a button for clearing the high scores.
 
-var questions = ["What is considered to be Akira Kurosawa's masterpiece film?","What's the name of the nightclub in Casablanca?"];
-var answerA = ["The Seven Samurai", "Sam's Place"];
-var answerB = ["Yojimbo","The White House"];
-var answerC = ["The Hidden Fortress","Rick's Cafe"];
-var answerD = ["Throne of Blood","The Nazi Club"];
-var correctAnswers = ["The Seven Samurai", "Rick's Cafe"];
+var questions = ["What is considered to be Akira Kurosawa's masterpiece film?","What's the name of the nightclub in Casablanca?","What did Rosebud signify in Citizen Kane?"];
+var answerA = ["The Seven Samurai", "Sam's Place","The main character's one true love"];
+var answerB = ["Yojimbo","The White House","The main character remembering his hometown"];
+var answerC = ["The Hidden Fortress","Rick's Cafe","The dying word of a happy man"];
+var answerD = ["Throne of Blood","The Nazi Club","The memory of the main character's happy childhood"];
+var correctAnswers = ["The Seven Samurai", "Rick's Cafe","The memory of the main character's happy childhood"];
 var i = 0;
-var myTimer = 8;
+var myTimer = 60;
 var intervalTimer;
 var pointsGained = 0;
 var highScoreList;
@@ -42,7 +42,7 @@ document.querySelector("#quiz").addEventListener("click", function(event){
         i++;
         if(i === questions.length){
             clearInterval(intervalTimer);
-            document.querySelector(".timeLeft").style.display = "none"; 
+            document.querySelector("#timeLeft").style.display = "none"; 
             handleResults();
         }
         else{changeQuestion(i);}
@@ -69,10 +69,10 @@ function handleResults(){
 function setTimer(){
     myTimer--;
     //console.log(myTimer);
-    document.querySelector(".timeLeft").textContent = myTimer + " seconds left";
-    if(myTimer <= 0){
+    document.querySelector("#timeLeft").textContent = myTimer + " seconds left";
+    if(myTimer < 0){
         clearInterval(intervalTimer);
-        document.querySelector(".timeLeft").style.display = "none"; 
+        document.querySelector("#timeLeft").style.display = "none"; 
         handleResults();       
     }
 }
@@ -89,7 +89,7 @@ function pressBegin(event){
     document.querySelector("#rules").style.display = "none";
     document.querySelector("#quiz").style.display = "block";
     changeQuestion(i);
-    document.querySelector(".timeLeft").style.display = "block";
+    document.querySelector("#timeLeft").style.display = "block";
     intervalTimer = setInterval(setTimer, 1000);
 }
 
