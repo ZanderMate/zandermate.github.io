@@ -18,6 +18,7 @@ var i = 0;
 var myTimer = (questions.length * 10);
 var beginningOfQuest = 0;
 var intervalTimer;
+var rightAnswers = 0;
 var pointsGained = 0;
 var arrHighScores = [];
 var highScoreList;
@@ -38,6 +39,7 @@ document.querySelector("#quiz").addEventListener("click", function(event){
         var endOfQuest = myTimer;
         if(userAnswer === correctAnswers[i]){
             pointsGained = pointsGained + (10 - (beginningOfQuest - endOfQuest));
+            rightAnswers = rightAnswers + 1;
         }
         else{
             myTimer = myTimer - 10;
@@ -45,7 +47,7 @@ document.querySelector("#quiz").addEventListener("click", function(event){
         i++;
         if(i === questions.length){
             clearInterval(intervalTimer);
-            document.querySelector("#timeLeft").style.display = "none"; 
+            $("#timeLeft").hide(); 
             handleResults();
         }
         else{changeQuestion(i);
@@ -66,18 +68,18 @@ function changeQuestion(answerIndex){
 
 //after time or questions run out it gives score earned
 function handleResults(){
-    document.querySelector("#quiz").style.display = "none";
-    document.querySelector("#results").style.display = "block";
-    document.querySelector("#pointTotal").innerHTML = "You have earned " + pointsGained + " points for your efforts!";
+    $("#quiz").hide();
+    $("#results").show();
+    $("#pointTotal").html("You got " + rightAnswers + " questions right and earned " + pointsGained + " points for your efforts!");
 }
 
 function setTimer(){
     myTimer--;
-    //console.log(myTimer);
-    document.querySelector("#timeLeft").textContent = myTimer + " seconds left";
+    console.log(myTimer);
+    $("#timeLeft").html(myTimer + " seconds left");
     if(myTimer < 0){
         clearInterval(intervalTimer);
-        document.querySelector("#timeLeft").style.display = "none"; 
+        $("#timeLeft").hide(); 
         handleResults();       
     }
 }
@@ -85,11 +87,20 @@ function setTimer(){
 function pressRestart(event){
     event.preventDefault();
     i = 0;
-    myTimer = 60;
+    myTimer = (questions.length * 10);
     pointsGained = 0;
     $("#sign-up").removeAttr('value');
     $("#rules").show();
     $("#high-scores").hide();
+}
+
+function quizTwo(event){
+    event.preventDefault();
+    $(".opening-nav").hide();
+    $(".opening-nav").hide();
+    $("#opening-page").hide();
+    $(".opening-movie").show();
+    $("#rules").show();   
 }
 
 //function to what happens when you press the 'Begin' button
@@ -98,7 +109,7 @@ function pressBegin(event){
     document.querySelector("#rules").style.display = "none";
     document.querySelector("#quiz").style.display = "block";
     changeQuestion(i);
-    document.querySelector("#timeLeft").style.display = "block";
+    $("#timeLeft").show();
     intervalTimer = setInterval(setTimer, 1000);
     beginningOfQuest = myTimer;
 }
@@ -109,7 +120,7 @@ document.querySelector("#submit").addEventListener("click", function(){
     var rank = {name: userName, points: pointsGained}
     highScoreList.push(rank);
     for(var i = 0; i < highScoreList.length; i++){
-    $("#high-scores").append("<br>" + highScoreList[i].name + "........." + highScoreList[i].points);
+    $("#high-scores").append("<br>" + highScoreList[i].name + " " + highScoreList[i].points);
 }
     $("#results").hide();
     document.getElementById("sign-up").value = "";
@@ -125,4 +136,8 @@ $(".restart").click(function(event){
 //create an event for clicking 'Begin' button
 $(".start").click(function(event){
     pressBegin(event);
+})
+
+$(".choice-two").click(function(event){
+    quizTwo(event);
 })

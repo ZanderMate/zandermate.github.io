@@ -9,14 +9,40 @@
     </head>
     <body class="body">
         <header>
-            <nav class="navbar">
+            <nav class="navbar opening-nav">
                 <div class="container-fluid">
-                    <h1 class="text-left pl-5 py-3 mb-20 heading">Movie Trivia Time!</h1>
+                    <h2 class="text-left pl-5 py-3 mb-20 heading">This a Trivia Site!!</h2>
+                </div>
+            </nav>
+            <nav class="navbar opening-movie" style="display: none">
+                <div class="container-fluid">
+                    <h2 class="text-left pl-5 py-3 mb-20 heading">Movie Trivia Time!</h2>
                     <div id="timeLeft"></div>
                 </div>
             </nav>
+            <nav class="navbar opening-alex" style="display: none">
+                <div class="container-fluid">
+                    <h2 class="text-left pl-5 py-3 mb-20 heading">Alex Trivia Time</h2>
+                </div>
+            </nav>
         </header>
-        <div class="container" id="rules">
+        <div class="container">
+            <div class="row" id="opening-page">
+                <div class="col-md-6 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">'Get to Know Alex' Quiz</h5>
+                        <button type="button" class="btn choice-one">Click Here</button>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">'Old Movies' Quiz</h5>
+                        <button type="button" class="btn choice-two">Click Here</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="rules" style="display: none">
             <h3>The Rules of the Quiz:</h3>
             <ol>
                 <li>
@@ -57,7 +83,7 @@
             <input id="sign-up" placeholder="Your Initials">
             <button type="button" class="btn" id="submit">Submit</button>
         </form>
-        <div id="high-scores" class="container" style="display: none">
+        <div id="high-scores" class="container text-center" style="display: none">
             <button type="button" class="btn restart">Top That Score</button>
         </div>
 

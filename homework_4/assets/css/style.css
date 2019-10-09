@@ -9,19 +9,43 @@ h3{
 }
 
 .body{
-    background-color: ghostwhite;
+    background-image: url(../images/questionmark_bg.jpg);
 }
 
 .btn{
-    color: whitesmoke;
-    background-color: lightslategrey;
+    color: dimgray;
+    background-color: ghostwhite;
+}
+
+.col-md-6{
+    background-color: dimgray;
+    color: ghostwhite;
+    border: 2px solid black;
 }
 
 #timeLeft{
     font-family: 'Press Start 2P', cursive;
     text-align: right;
+    color: black;
 }
 
-#rules{
+.container{
     margin-top:100px;
+}
+
+#results,
+#high-scores,
+#rules{
+    background-color: dimgray;
+    color: ghostwhite;
+    padding: 10px;
+}
+
+#timeLeft{
+    color: black;
+}
+
+#quiz{
+    background-color: dimgray;
+    color:ghostwhite;
 }
