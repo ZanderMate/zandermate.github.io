@@ -8,12 +8,12 @@
         //and their scores in order of highest score to lowest score.
     //There also will be a button for clearing the high scores.
 
-var questions = ["What is considered to be Akira Kurosawa's masterpiece film?","What's the name of the nightclub in Casablanca?","What did Rosebud signify in Citizen Kane?"];
-var answerA = ["The Seven Samurai", "Sam's Place","The main character's one true love"];
-var answerB = ["Yojimbo","The White House","The main character remembering his hometown"];
-var answerC = ["The Hidden Fortress","Rick's Cafe","The dying word of a happy man"];
-var answerD = ["Throne of Blood","The Nazi Club","The memory of the main character's happy childhood"];
-var correctAnswers = ["The Seven Samurai", "Rick's Cafe","The memory of the main character's happy childhood"];
+var questions = ["What is considered to be Akira Kurosawa's masterpiece film?","What's the name of the nightclub in 'Casablanca'?","What did Rosebud signify in Citizen Kane?","What was Dorothy's last name from 'The Wizard of Oz'?","What movie starring Gene Kelly, Debbie Reynolds, and Donald O'Coonor has an iconic song with the same name as the movie?","What country made the first all-woman cast in 1931?","For what movie did Sidney Poitier become the first African-American to win the Academy Award for Best Actor in 1963?","How many of the jurors did Henry Fonda have to convince to change their minds in the movie '12 Angry Men' from guilty to not guilty?","In 'Rear Window', who starred as the photographer with two broken legs and is convenced that his neighbor has murdered his own wife?","What movie has Marlon Brando's character utter 'I could have been a contender. I could have been somebody...'?","What is the name of the family that Maria goes to work for in 'The Sound of Music'?","What musical based on 'Romeo and Juliet' involves rival gangs named the Jets and the Sharks?","What is the name of the intelliigent supercomputer in '2001: A Space Odyessey'?","What is so unique about James Dean being nominated for an Academy Award for Best Actor for 'East of Eden' and 'Giant' in 1956 and 1957 respectively?","What is Alex's favorite movie all time?"];
+var answerA = ["The Seven Samurai", "Sam's Place","The main character's one true love","Storm","How the West was Won","Germany (Madchen in Uniform)","The Defiant Ones","Nine","Gary Cooper","A Street Car Named Desire","van Klacken","Romeo + Juliet","HAL 2001","He was uncredited in both movies","Star Wars: A New Hope"];
+var answerB = ["Yojimbo","The White House","The main character remembering his hometown","Gale","Singin' in the Rain","USA (The Women)","A Raisin in the Sun","Eleven","Gregory Peck","On the Waterfront","von Hammerstein","Rent","HAL 5000","He had died prior to either award ceremony","The Court Jester"];
+var answerC = ["The Hidden Fortress","Rick's Cafe","The dying word of a happy man","Hale","For Me and My Gal","Sri Lanka (Seya)","The Greatest Story Ever Told","Ten","James Stewart","The Wild One","van Hansens","West Side Story","HAL 9000","Neither movie had much critical success","Dead Poet's Society"];
+var answerD = ["Throne of Blood","The Nazi Club","The memory of the main character's happy childhood","Smith","Give Out, Sisters","France (Women's Club)","Lillies of the Field","Twelve","Paul Newman","Superman","von Trapp","Guys and Dolls","HAROLD 1000","He had publicly announced that he was ashamed of both movies","Cinema Paradiso"];
+var correctAnswers = ["The Seven Samurai", "Rick's Cafe","The memory of the main character's happy childhood","Gale","Singin' in the Rain","Germany (Madchen in Uniform)","Lillies of the Field","Eleven","James Stewart","On the Waterfront","von Trapp","West Side Story","HAL 9000","He had died prior to either award ceremony","Dead Poet's Society"];
 var i = 0;
 var myTimer = (questions.length * 10);
 var beginningOfQuest = 0;
@@ -103,13 +103,13 @@ function pressBegin(event){
     beginningOfQuest = myTimer;
 }
 
-//When pressing submit button to add initial into High Score List
+//When pressing 'Submit' button to add initials into High Score List
 document.querySelector("#submit").addEventListener("click", function(){
     var userName = document.querySelector("#sign-up").value;
     var rank = {name: userName, points: pointsGained}
     highScoreList.push(rank);
     for(var i = 0; i < highScoreList.length; i++){
-    $("#high-scores").append("<br>" + highScoreList[i].name + " " + highScoreList[i].points);
+    $("#high-scores").append("<br>" + highScoreList[i].name + "........." + highScoreList[i].points);
 }
     $("#results").hide();
     document.getElementById("sign-up").value = "";
