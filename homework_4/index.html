@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|Kaushan+Script|Press+Start+2P&display=swap" rel="stylesheet">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     </head>
     <body class="body">
         <header>
@@ -47,12 +48,15 @@
                 </li>
             </ul>
         </div>
-        <div id="results" class="container" style="display: none">
+        <form id="results" class="container" style="display: none">
             <p id="pointTotal"></p>
             <input id="sign-up" placeholder="Your Initials">
             <button type="button" class="btn" id="submit">Submit</button>
+        </form>
+        <div id="high-scores" class="container" style="display: none">
+            <button type="button" class="btn restart">Top That Score</button>
         </div>
-        <div id="high-scores" style="display: none"></div>
+
         <script src="assets/javascript/script.js"></script>
     </body>
 </html>

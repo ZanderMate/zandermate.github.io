@@ -15,26 +15,29 @@ var answerC = ["The Hidden Fortress","Rick's Cafe","The dying word of a happy ma
 var answerD = ["Throne of Blood","The Nazi Club","The memory of the main character's happy childhood"];
 var correctAnswers = ["The Seven Samurai", "Rick's Cafe","The memory of the main character's happy childhood"];
 var i = 0;
-var myTimer = 60;
+var myTimer = (questions.length * 10);
+var beginningOfQuest = 0;
 var intervalTimer;
 var pointsGained = 0;
+var arrHighScores = [];
 var highScoreList;
-    if(localStorage.getItem("highScoreList")) {
+var listScores = document.querySelector("#high-scores");
+if(localStorage.getItem("highScoreList")) {
     highScoreList = JSON.parse(localStorage.getItem("highScoreList"))
-}   else{
+}   
+else{
     highScoreList = [];
 }
 
-var listScores = document.querySelector("#high-scores");
 
 
 //what happens when choosing any answer button
 document.querySelector("#quiz").addEventListener("click", function(event){
     if(event.target.matches("button")){
         var userAnswer = document.getElementById(event.target.id).textContent;
+        var endOfQuest = myTimer;
         if(userAnswer === correctAnswers[i]){
-            pointsGained = pointsGained + 2;
-            //console.log(pointsGained);
+            pointsGained = pointsGained + (10 - (beginningOfQuest - endOfQuest));
         }
         else{
             myTimer = myTimer - 10;
@@ -45,7 +48,9 @@ document.querySelector("#quiz").addEventListener("click", function(event){
             document.querySelector("#timeLeft").style.display = "none"; 
             handleResults();
         }
-        else{changeQuestion(i);}
+        else{changeQuestion(i);
+            beginningOfQuest = myTimer;
+        }
     }
     }
 )
@@ -63,7 +68,7 @@ function changeQuestion(answerIndex){
 function handleResults(){
     document.querySelector("#quiz").style.display = "none";
     document.querySelector("#results").style.display = "block";
-    document.querySelector("#pointTotal").textContent = "You have earned " + pointsGained + " points for your efforts!";
+    document.querySelector("#pointTotal").innerHTML = "You have earned " + pointsGained + " points for your efforts!";
 }
 
 function setTimer(){
@@ -77,11 +82,15 @@ function setTimer(){
     }
 }
 
-//create an event for clicking 'Begin' button
-document.querySelector(".start").addEventListener("click", function(event){
-    pressBegin(event);
-    }
-)
+function pressRestart(event){
+    event.preventDefault();
+    i = 0;
+    myTimer = 60;
+    pointsGained = 0;
+    $("#sign-up").removeAttr('value');
+    $("#rules").show();
+    $("#high-scores").hide();
+}
 
 //function to what happens when you press the 'Begin' button
 function pressBegin(event){
@@ -91,18 +100,29 @@ function pressBegin(event){
     changeQuestion(i);
     document.querySelector("#timeLeft").style.display = "block";
     intervalTimer = setInterval(setTimer, 1000);
+    beginningOfQuest = myTimer;
 }
 
+//When pressing submit button to add initial into High Score List
 document.querySelector("#submit").addEventListener("click", function(){
     var userName = document.querySelector("#sign-up").value;
     var rank = {name: userName, points: pointsGained}
     highScoreList.push(rank);
-    var score = document.createElement("div");
-    listScores.appendChild(score);
-    var temp = score.setAttribute("id","nameScore");
-    document.querySelector("#nameScore").textContent = rank.name + " " +rank.points;
+    for(var i = 0; i < highScoreList.length; i++){
+    $("#high-scores").append("<br>" + highScoreList[i].name + " " + highScoreList[i].points);
+}
+    $("#results").hide();
+    document.getElementById("sign-up").value = "";
     document.querySelector("#high-scores").style.display = "block";
     localStorage.setItem("highScoreList", JSON.stringify(highScoreList));
 })
 
-console.log(highScoreList);
+//create an event of clicking 'Restart' Button
+$(".restart").click(function(event){
+    pressRestart(event);
+})
+
+//create an event for clicking 'Begin' button
+$(".start").click(function(event){
+    pressBegin(event);
+})
