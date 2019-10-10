@@ -20,7 +20,6 @@ var beginningOfQuest = 0;
 var intervalTimer;
 var rightAnswers = 0;
 var pointsGained = 0;
-var arrHighScores = [];
 var highScoreList;
 var listScores = document.querySelector("#high-scores");
 if(localStorage.getItem("highScoreList")) {
@@ -40,9 +39,19 @@ document.querySelector("#quiz").addEventListener("click", function(event){
         if(userAnswer === correctAnswers[i]){
             pointsGained = pointsGained + (10 - (beginningOfQuest - endOfQuest));
             rightAnswers = rightAnswers + 1;
+            $(".correctness").text("Right");
+            setTimeout(function(){
+                $(".correctness").empty();
+            }
+            , 500)
         }
         else{
             myTimer = myTimer - 10;
+            $(".correctness").text("Wrong");
+            setTimeout(function(){
+                $(".correctness").empty();
+            }
+            , 500)
         };
         i++;
         if(i === questions.length){
@@ -59,20 +68,21 @@ document.querySelector("#quiz").addEventListener("click", function(event){
 
 //change questions and answer fields for current question based on index position
 function changeQuestion(answerIndex){
-    document.querySelector(".askQuestion").textContent = questions[answerIndex];
-    document.querySelector("#buttonA").textContent = answerA[answerIndex];
-    document.querySelector("#buttonB").textContent = answerB[answerIndex];
-    document.querySelector("#buttonC").textContent = answerC[answerIndex];
-    document.querySelector("#buttonD").textContent = answerD[answerIndex];
+    $(".askQuestion").text(questions[answerIndex]);
+    $("#buttonA").text(answerA[answerIndex]);
+    $("#buttonB").text(answerB[answerIndex]);
+    $("#buttonC").text(answerC[answerIndex]);
+    $("#buttonD").text(answerD[answerIndex]);
 }
 
-//after time or questions run out it gives score earned
+//after time or questions run out, it gives score earned
 function handleResults(){
     $("#quiz").hide();
     $("#results").show();
     $("#pointTotal").html("You got " + rightAnswers + " questions right and earned " + pointsGained + " points for your efforts!");
 }
 
+//running the timer from when we start the quiz
 function setTimer(){
     myTimer--;
     console.log(myTimer);
@@ -84,6 +94,7 @@ function setTimer(){
     }
 }
 
+//pressing button to restart movie quiz again
 function pressRestart(event){
     event.preventDefault();
     i = 0;
@@ -94,6 +105,7 @@ function pressRestart(event){
     $("#high-scores").hide();
 }
 
+//from main quiz page, this button goes to movie quiz start page
 function quizTwo(event){
     event.preventDefault();
     $(".opening-nav").hide();

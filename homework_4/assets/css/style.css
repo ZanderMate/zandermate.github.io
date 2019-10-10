@@ -41,11 +41,12 @@ h3{
     padding: 10px;
 }
 
-#timeLeft{
-    color: black;
-}
-
 #quiz{
     background-color: dimgray;
     color:ghostwhite;
+}
+
+.correctness{
+    font-family: 'Press Start 2P', cursive;
+    color: white;
 }
