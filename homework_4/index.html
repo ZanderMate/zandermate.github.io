@@ -42,20 +42,38 @@
                 </div>
             </div>
         </div>
-        <div class="container" id="rules" style="display: none">
-            <h3>The Rules of the Quiz:</h3>
+        <div class="container" id="rules-two" style="display: none">
+            <h3>The Rules of the Alex Quiz:</h3>
             <ol>
                 <li>
                     Each question is multiple choice with 4 possible answers.
                 </li>
                 <li>
-                    If you get the question right, you move onto the next question and gain 2 points.
+                    If you get the question right, you move onto the next question and gain 1 points.
+                </li>
+                <li>
+                    If you get the question wrong, you move onto the next question, gaining no points.
+                </li>
+                <li>
+                    Once you press the 'Begin' button, the quiz will begin.
+                </li>
+            </ol>
+            <button type="button" class="btn start-two">Begin</button>
+        </div>
+        <div class="container" id="rules" style="display: none">
+            <h3>The Rules of the Movie Quiz:</h3>
+            <ol>
+                <li>
+                    Each question is multiple choice with 4 possible answers.
+                </li>
+                <li>
+                    If you get the question right, you move onto the next question and gain points base on how fast you answer the question.
                 </li>
                 <li>
                     If you get the question wrong, you lose ten seconds from the timer and move onto the next question, gaining no points.
                 </li>
                 <li>
-                    Once you press the 'Begin' button, your timer will start at sixty seconds.
+                    Once you press the 'Begin' button, your timer will start at fifty seconds.
                 </li>
             </ol>
             <button type="button" class="btn start">Begin</button>
@@ -79,6 +97,25 @@
             </ul>
             <div class="correctness"></div>
         </div>
+        <div class="container" id="quiz-two" style= "display: none">
+            <h3>Question:</h3>
+            <p class="askQuestion-two"></p>
+            <ul style="list-style-type:none;">
+                <li>
+                    <button type="button" id="button1" class="btn mb-2"></button>
+                </li>
+                <li>
+                    <button type="button" id="button2" class="btn mb-2"></button>
+                </li>
+                <li>
+                    <button type="button" id="button3" class="btn mb-2"></button>
+                </li>
+                <li>
+                    <button type="button" id="button4" class="btn mb-2"></button>
+                </li>
+            </ul>
+            <div class="correctness"></div>
+        </div>
         <form id="results" class="container" style="display: none">
             <p id="pointTotal"></p>
             <input id="sign-up" placeholder="Your Initials">
@@ -86,8 +123,10 @@
         </form>
         <div id="high-scores" class="container text-center" style="display: none">
             <button type="button" class="btn restart">Top That Score</button>
+            <div class="scores"></div>
         </div>
 
-        <script src="assets/javascript/script.js"></script>
+        <script src="assets/javascript/script1.js"></script>
+        <script src="assets/javascript/script2.js"></script>
     </body>
 </html>

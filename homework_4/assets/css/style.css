@@ -34,6 +34,7 @@ h3{
 }
 
 #results,
+#rules-two,
 #high-scores,
 #rules{
     background-color: dimgray;
@@ -41,12 +42,18 @@ h3{
     padding: 10px;
 }
 
+#quiz-two,
 #quiz{
     background-color: dimgray;
     color:ghostwhite;
 }
 
+.scores,
 .correctness{
     font-family: 'Press Start 2P', cursive;
     color: white;
+}
+
+.scores{
+    margin-bottom: 50px;
 }
