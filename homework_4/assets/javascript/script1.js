@@ -127,7 +127,7 @@ function changeQuestion(answerIndex) {
 
 //change questions and answer fields for current question based on index position (Alex quiz)
 function changeQuestionTwo(answerIndex) {
-    $(".askQuestionTwo").text(questionsTwo[answerIndex]);
+    $(".askQuestion-two").text(questionsTwo[answerIndex]);
     $("#button1").text(answerATwo[answerIndex]);
     $("#button2").text(answerBTwo[answerIndex]);
     $("#button3").text(answerCTwo[answerIndex]);
@@ -201,6 +201,7 @@ function pressRestart(event) {
     $("#high-scores").hide();
     rightAnswers = 0;
     $(".scores").empty();
+    totalQuestions = 0;
 }
 
 //pressing button to restart quiz again (alex quiz)
