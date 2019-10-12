@@ -1,21 +1,20 @@
-var questionsTwo = ["What does Alex call his sibling?","Where did Alex live for two years teaching Oral English to college age students?"];
-var answerATwo = ["Peter","Japan"];
-var answerBTwo = ["Bro","France"];
-var answerCTwo = ["Pete","Mexico"];
-var answerDTwo = ["Petey","China"];
-var correctAnswersTwo = ["Petey","China"];
+var questionsTwo = ["What does Alex call his sibling?", "Where did Alex live for two years teaching Oral English to college age students?"];
+var answerATwo = ["Peter", "Japan"];
+var answerBTwo = ["Bro", "France"];
+var answerCTwo = ["Pete", "Mexico"];
+var answerDTwo = ["Petey", "China"];
+var correctAnswersTwo = ["Petey", "China"];
 var i = 0;
-var beginningOfQuest = 0;
 var rightOtherAnswers = 0;
 var pointsGainedOther = 0;
-var highScoreListOther;
+var secondHighScoreList;
 var listScores = $("#high-scores");
-//if (localStorage.getItem("highScoreList")) {
-//    highScoreList = JSON.parse(localStorage.getItem("highScoreList"))
-//}
-//else {
-//    highScoreList = [];
-//}
+if (localStorage.getItem("secondHighScoreList")) {
+    secondHighScoreList = JSON.parse(localStorage.getItem("secondHighScoreList"))
+}
+else {
+    secondHighScoreList = [];
+}
 
 //what happens when choosing any answer button
 document.querySelector("#quiz-two").addEventListener("click", function (event) {
@@ -23,6 +22,7 @@ document.querySelector("#quiz-two").addEventListener("click", function (event) {
         var userAnswer = document.getElementById(event.target.id).textContent;
         if (userAnswer === correctAnswersTwo[i]) {
             pointsGainedOther++;
+            console.log(pointsGainedOther);
             rightAnswers = rightAnswers + 1;
             $(".correctness").text("You got it!");
             setTimeout(function () {
@@ -61,14 +61,14 @@ function changeQuestionTwo(answerIndex) {
 function handleResults() {
     $("#quiz-two").hide();
     $("#results").show();
-    $("#pointTotal").html("You got " + rightAnswers + " questions right and earned " + pointsGained + " points for your efforts!");
+    $("#pointTotal").html("You got " + rightAnswers + " questions right and earned " + pointsGainedOther + " points for your efforts!");
 }
 
 //pressing button to restart alex quiz again
-function pressRestart(event) {
+function pressRestartAgain(event) {
     event.preventDefault();
     i = 0;
-    pointsGained = 0;
+    pointsGainedOther = 0;
     $("#rules-two").show();
     $("#high-scores").hide();
     rightAnswers = 0;
@@ -94,16 +94,16 @@ function pressStart(event) {
 
 //When pressing 'Submit' button to add initials into High Score List
 document.querySelector("#submit").addEventListener("click", function () {
-    var userName = document.querySelector("#sign-up").value;
-    var rank = { name: userName, points: pointsGained }
-    highScoreList.push(rank);
-    for (var i = 0; i < highScoreList.length; i++) {
-        $(".scores").append("<br>" + highScoreList[i].name + " " + highScoreList[i].points);
+    var userNameTwo = document.querySelector("#sign-up").value;
+    var rankTwo = { name: userNameTwo, points: pointsGainedOther }
+    secondHighScoreList.push(rank);
+    for (var i = 0; i < secondHighScoreList.length; i++) {
+        $(".scores").append("<br>" + secondHighScoreList[i].name + " " + secondHighScoreList[i].points);
     }
     $("#results").hide();
     document.getElementById("sign-up").value = "";
     $("#high-scores").show();
-    localStorage.setItem("highScoreList", JSON.stringify(highScoreList));
+    localStorage.setItem("secondHighScoreList", JSON.stringify(secondHighScoreList));
 })
 
 //create an event of clicking 'Restart' Button

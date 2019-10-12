@@ -78,6 +78,8 @@
             </ol>
             <button type="button" class="btn start">Begin</button>
         </div>
+        <audio id="right"><source src="assets/sounds/ding-ding.wav" type="audio/wav"></audio>
+        <audio id="wrong"><source src="assets/sounds/wrong-buzzer.mp3" type="audio/mpeg"></audio>
         <div class="container" id="quiz" style= "display: none">
             <h3>Question:</h3>
             <p class="askQuestion"></p>
@@ -120,13 +122,15 @@
             <p id="pointTotal"></p>
             <input id="sign-up" placeholder="Your Initials">
             <button type="button" class="btn" id="submit">Submit</button>
+            <button type="button" class="btn" id="submit-two">Submit</button>
         </form>
         <div id="high-scores" class="container text-center" style="display: none">
             <button type="button" class="btn restart">Top That Score</button>
+            <button type="button" class="btn restart-again">Top That Score</button>
             <div class="scores"></div>
         </div>
 
         <script src="assets/javascript/script1.js"></script>
-        <script src="assets/javascript/script2.js"></script>
+        <!--<script src="assets/javascript/script2.js"></script>-->
     </body>
 </html>
