@@ -202,6 +202,8 @@ function pressRestart(event) {
     rightAnswers = 0;
     $(".scores").empty();
     totalQuestions = 0;
+    booleans = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
 }
 
 //pressing button to restart quiz again (alex quiz)
@@ -295,4 +297,11 @@ $(".choice-two").click(function (event) {
 //go to alex quiz rules
 $(".choice-one").click(function (event) {
     quizOne(event);
+})
+
+$(".clear-hs").click(function(event){
+    localStorage.removeItem("highScoreList");
+    localStorage.removeItem("otherHighScoreList")
+    $(".scores").empty();
+    
 })
