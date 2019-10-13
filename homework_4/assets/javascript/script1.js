@@ -162,6 +162,7 @@ function setTimer() {
     }
 }
 
+//stops duplicates from occurring when choosing the random questions for movie quiz
 function noDuplicates(){
     var j = Math.floor(Math.random() * questions.length);
     console.log(j);
