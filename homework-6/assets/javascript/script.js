@@ -1,4 +1,4 @@
-$(".search").on("click", function (event) {
+$(".search").on("click", function () {
     var cityName = $("input").val().trim();
     var newLi = $("<li>");
     newLi.text(cityName);
@@ -10,15 +10,15 @@ $(".search").on("click", function (event) {
         url: queryUrl,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         $(".icon-here").remove();
-        $("input").empty();
         var iconCode = response.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
-        var iconDiv = $("<img>").addClass("icon-here").attr('src', iconURL);
-        $(".heading").append(iconDiv);
-        $(".city-name-header").text(response.name + " (" + moment().format('l') + ")");
-        $(".temp").text("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(0) + " Degrees Fahrenheit");
+        var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&apikey=" + apiKey;
+        var iconDiv = $("<img>").addClass("icon-here").attr('src', iconURL).attr('alt', "weather symbol");
+        $(".header").append(iconDiv);
+        $(".city-name").text(response.name + " (" + moment().format('l') + ")");
+        $(".temp").text("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
         $(".humidity").text("Humidity: " + response.main.humidity + "%");
         $(".wind-speed").text("Wind Speed: " + response.wind.speed + " mph");
         var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&apikey=" + apiKey;
@@ -27,6 +27,20 @@ $(".search").on("click", function (event) {
             method: "GET"
         }).then(function (response) {
             $(".uv-index").text("UV-Index: " + response.value);
+            $.ajax({
+                url: forecastURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                for (var i = 0; i < 5; i++) {
+                    var newDiv = $("<div>").addClass("bg-primary text-white p-1 m-3");
+                    var newBreak = $("<br>");
+                    newDiv.html(moment().format('l'));
+                    $(".forecast").append(newDiv);
+                    $(".forecast").append(newBreak);
+                    
+                }
+            })
         })
     })
 })
