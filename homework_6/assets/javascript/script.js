@@ -17,7 +17,7 @@ $(".search").on("click", function () {
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&apikey=" + apiKey;
         var iconDiv = $("<img>").addClass("icon-here").attr('src', iconURL).attr('alt', "weather symbol");
         $(".header").append(iconDiv);
-        $(".city-name").text(response.name + " (" + moment().format('l') + ")");
+        $(".city-name").text(response.name + " (" + moment().format('L') + ")");
         $(".temp").text("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
         $(".humidity").text("Humidity: " + response.main.humidity + "%");
         $(".wind-speed").text("Wind Speed: " + response.wind.speed + " mph");
@@ -32,13 +32,21 @@ $(".search").on("click", function () {
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
+                $(".forecast").empty();
                 for (var i = 0; i < 5; i++) {
-                    var newDiv = $("<div>").addClass("bg-primary text-white p-1 m-3");
-                    var newBreak = $("<br>");
-                    newDiv.html(moment().format('l'));
+                    var newDiv = $("<div>").addClass("bg-primary text-white p-1 m-3").attr('id', i);
+                    var newRow = $("<div>").addClass("next-line" + [i]);
+                    var newTemp = $("<div>").addClass("temp-new text-white");
+                    iconCode = response.list[i].weather[0].icon;
+                    iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
+                    iconDiv = $("<img>").addClass("").attr('src', iconURL).attr('alt', "another weather symbol");
+                    newDiv.html(moment().add((i + 1), 'days').format('L'));
                     $(".forecast").append(newDiv);
-                    $(".forecast").append(newBreak);
-                    
+                    $(newDiv).append(newRow);
+                    $(".next-line" + i).append(iconDiv);
+                    $(newTemp).html("Temp: " + ((response.list[i].main.temp -273.15) * 1.8 + 32).toFixed(1) + " degrees F");
+                    $("#" + i).append(newTemp);
+
                 }
             })
         })
