@@ -1,9 +1,20 @@
+var cityList;
+if (localStorage.getItem("cityList")) {
+    cityList = JSON.parse(localStorage.getItem("highScoreList"))
+}
+else {
+    cityList = [];
+}
+
 $(".search").on("click", function () {
     var cityName = $("input").val().trim();
     var newLi = $("<li>");
     newLi.text(cityName);
     newLi.addClass("btn btn-outline-dark list-group-item")
     $(".list-buttons").append(newLi);
+    var cityButtons = { name: cityName };
+    cityList.push(cityButtons);
+    localStorage.setItem("cityButtons", JSON.stringify(cityList));
     apiKey = "7b3cad7968fd6399aa4f404b4c72f407";
     queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&apikey=" + apiKey;
     $.ajax({
@@ -18,7 +29,7 @@ $(".search").on("click", function () {
         var iconDiv = $("<img>").addClass("icon-here").attr('src', iconURL).attr('alt', "weather symbol");
         $(".header").append(iconDiv);
         $(".city-name").text(response.name + " (" + moment().format('L') + ")");
-        $(".temp").html("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) +  ' &deg' + "F");
+        $(".temp").html("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + ' &deg' + "F");
         $(".humidity").text("Humidity: " + response.main.humidity + "%");
         $(".wind-speed").text("Wind Speed: " + response.wind.speed + " mph");
         var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&apikey=" + apiKey;
@@ -32,6 +43,7 @@ $(".search").on("click", function () {
                 method: "GET"
             }).then(function (response) {
                 $(".forecast").empty();
+                $(".forecast-title").empty();
                 var forecastTitle = $("<h4>").text("5-Day Forecast").addClass("pt-4");
                 $(".forecast-title").append(forecastTitle);
                 for (var i = 0; i < 5; i++) {
@@ -46,7 +58,7 @@ $(".search").on("click", function () {
                     $(".forecast").append(newDiv);
                     $(newDiv).append(newRow);
                     $(".next-line" + i).append(iconDiv);
-                    $(newTemp).html("Temp: " + ((response.list[i].main.temp -273.15) * 1.8 + 32).toFixed(1) +  ' &deg' + "F");
+                    $(newTemp).html("Temp: " + ((response.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(1) + ' &deg' + "F");
                     $("#" + i).append(newTemp);
                     $(newHumidity).text("Humidity: " + response.list[i].main.humidity + "%");
                     $("#" + i).append(newHumidity);
