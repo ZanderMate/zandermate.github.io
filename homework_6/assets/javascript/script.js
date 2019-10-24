@@ -18,7 +18,7 @@ $(".search").on("click", function () {
         var iconDiv = $("<img>").addClass("icon-here").attr('src', iconURL).attr('alt', "weather symbol");
         $(".header").append(iconDiv);
         $(".city-name").text(response.name + " (" + moment().format('L') + ")");
-        $(".temp").text("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
+        $(".temp").html("Tempurature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) +  ' &deg' + "F");
         $(".humidity").text("Humidity: " + response.main.humidity + "%");
         $(".wind-speed").text("Wind Speed: " + response.wind.speed + " mph");
         var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&apikey=" + apiKey;
@@ -31,12 +31,14 @@ $(".search").on("click", function () {
                 url: forecastURL,
                 method: "GET"
             }).then(function (response) {
-                console.log(response);
                 $(".forecast").empty();
+                var forecastTitle = $("<h4>").text("5-Day Forecast").addClass("pt-4");
+                $(".forecast-title").append(forecastTitle);
                 for (var i = 0; i < 5; i++) {
-                    var newDiv = $("<div>").addClass("bg-primary text-white p-1 m-3").attr('id', i);
+                    var newDiv = $("<div>").addClass("bg-primary text-white p-3 m-2").attr('id', i);
                     var newRow = $("<div>").addClass("next-line" + [i]);
-                    var newTemp = $("<div>").addClass("temp-new text-white");
+                    var newTemp = $("<div>").addClass("text-white");
+                    var newHumidity = $("<div>").addClass("text-white");
                     iconCode = response.list[i].weather[0].icon;
                     iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
                     iconDiv = $("<img>").addClass("").attr('src', iconURL).attr('alt', "another weather symbol");
@@ -44,8 +46,10 @@ $(".search").on("click", function () {
                     $(".forecast").append(newDiv);
                     $(newDiv).append(newRow);
                     $(".next-line" + i).append(iconDiv);
-                    $(newTemp).html("Temp: " + ((response.list[i].main.temp -273.15) * 1.8 + 32).toFixed(1) + " degrees F");
+                    $(newTemp).html("Temp: " + ((response.list[i].main.temp -273.15) * 1.8 + 32).toFixed(1) +  ' &deg' + "F");
                     $("#" + i).append(newTemp);
+                    $(newHumidity).text("Humidity: " + response.list[i].main.humidity + "%");
+                    $("#" + i).append(newHumidity);
 
                 }
             })
