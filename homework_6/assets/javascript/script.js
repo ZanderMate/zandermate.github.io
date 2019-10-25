@@ -150,7 +150,7 @@ $(document).ready(function () {
         for (var i = 0; i < cityList.length; i++) {
             localStorage.getItem(cityList[i].name);
             var savedButton = $("<li>");
-            savedButton.text(cityList[i].name).addClass("btn btn-outline-dark line-item list-group-item").attr('id', i);
+            savedButton.text(cityList[i].name).addClass("btn btn-outline-dark line-item list-group-item").attr('id', "city-name-" + i);
             $(".list-buttons").append(savedButton);
             $(".button-row").show();
         }
