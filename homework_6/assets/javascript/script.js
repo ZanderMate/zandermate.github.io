@@ -89,3 +89,16 @@ $(".clear-button").click(function (event) {
     $(".list-buttons").empty();
     localStorage.removeItem('cityList');
 })
+
+//upon loading of page, checks to see if anything is stored in cityList localstorage
+$(document).ready(function(){
+    if (cityList !== []) {
+        for (var i = 0; i < cityList.length; i++){
+            localStorage.getItem(cityList[i].name);
+            var savedButton = $("<li>");
+            savedButton.text(cityList[i].name).addClass("btn btn-outline-dark line-item list-group-item").attr('data-value', i);
+            $(".list-buttons").append(savedButton);
+            $(".button-row").show();
+        }
+    }
+})
