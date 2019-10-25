@@ -14,28 +14,31 @@
 </head>
 
 <body>
-    <h1 class="text-center text-white bg-dark py-3">Weather Dashboard</h1>
+    <h1 class="text-center text-white title-page py-3">Weather Dashboard</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <div class="row">
-                    <p>
+                    <p class="search-title">
                         <strong>Search for a City:</strong>
                     </p>
                 </div>
-                <div class="row">
+                <div class="row search-form">
                     <input type="text" placeholder="City Name">
                     <button type="button" class="btn btn-info search fas fa-search"></button>
                 </div>
                 <div class="row">
-                    <ul class="list-group list-group-flush list-buttons"></ul>
+                    <ul class="list-group list-group-flush city-button list-buttons"></ul>
+                </div>
+                <div class="button-row" style="display: none;">
+                    <button class="clear-button">Clear City History</button>
                 </div>
             </div>
             <div class="col-md-8 heading">
                 <div class="row header">
                     <h3 class="city-name"></h3>
                 </div>
-                <div class="row">
+                <div class="row weather-info">
                     <div>
                         <div class="temp"></div>
                         <div class="humidity"></div>
@@ -51,6 +54,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/script2.js"></script>
 </body>
 
 </html>
