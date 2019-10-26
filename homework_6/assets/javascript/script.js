@@ -18,6 +18,7 @@ $(".search").click(function () {
     cityList.push(cityButtons);
     localStorage.setItem("cityList", JSON.stringify(cityList));
     $(".button-row").show();
+    $("input").val("");
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&apikey=" + apiKey;
     //ajax grab for city current weather info
     $.ajax({
