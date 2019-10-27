@@ -1,4 +1,4 @@
-apiKey = "7b3cad7968fd6399aa4f404b4c72f407";
+var apiKey = "7b3cad7968fd6399aa4f404b4c72f407";
 var cityList;
 if (localStorage.getItem("cityList")) {
     cityList = JSON.parse(localStorage.getItem("cityList"))
