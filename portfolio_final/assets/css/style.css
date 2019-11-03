@@ -6,21 +6,29 @@
     padding-bottom: 15px;
     text-align: center;
     font-size: 36px;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .container{
     background-color: whitesmoke;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 150px;
+    margin-bottom: 90px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Acme', sans-serif;
 }
 
 .footer {
     height: 60px;
+    background-color: midnightblue;
 }
 
 #header {
     background-color: midnightblue;
-    width: 100%;
+    margin-bottom: 10px;
 }
 
 .nav-link {
@@ -31,12 +39,21 @@
     color: whitesmoke;
 }
 
-/*Define the differences in format for different widths of the screen*/
+body {
+    background: url("../images/prism.png");
+}
+
+.cardText {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+/*Define the differences in format for different widths of the screen
 @media screen and (max-width: 576px) {
     #navLinks{
         justify-content: center;
     }
-    nav{
+    #header {
         max-width: 540px;
     }
     .navbar-nav .nav-link{
@@ -49,7 +66,7 @@
     #navLinks{
         justify-content: flex-end;
     }
-    nav{
+    #header {
         max-width: 540px;
     }
     #bioImage{
@@ -69,7 +86,7 @@
 }
 
 @media screen and (min-width: 992px){
-    nav{
+    #header {
         max-width: 960px;
     }
     #bioImage{
@@ -78,13 +95,10 @@
 }
 
 @media screen and (min-width: 1200px){
-    nav{
-        max-width: 1140px;
-    }
     #bioImage{
         width: 400px;
     }
-}
+}*/
 
 
 
