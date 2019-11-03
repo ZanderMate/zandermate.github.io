@@ -1,102 +1,34 @@
-/*Define the card body for portfolio page*/
-.card-body{
-    background-color: #4aaaa5;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
-    font-size: large;
-}
-
-a{
-    text-align: center;
-    color:#666666;
-    padding: 6px;
-}
-
 /*my name brand defined seperate of rest of navbar*/
-.navbar-brand{
-    background-color: #4aaaa5;
-    width: 600px;
+#brandname {
+    width: 300px;
     color: whitesmoke;
     padding-top: 15px;
     padding-bottom: 15px;
-    margin: 0;
     text-align: center;
-    font-family: 'Georgia', Times, 'Times New Roman', serif;
-    font-weight: bold;
-}
-
-h2{
-    color:#4aaaa5;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-left: 15px;
-    margin-right: 15px;
-    border-bottom: 3px solid #dddddd;
-    padding: 15px 0 15px 0;
-    font-weight: bold;
+    font-size: 36px;
 }
 
 .container{
-    background-color: #ffffff;
-    margin-top: 50px;
+    background-color: whitesmoke;
+    margin-top: 100px;
     margin-bottom: 50px;
-    padding-bottom: 30px;
 }
 
-card
-
-/*The background image so it can over all of the body*/
-.backgroundPrism{
-    background-image: url("../images/prism/prism.png");
-}
-
-/*generic footer that can be placed on all pages, hopefully sticky*/
-.footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.footer {
     height: 60px;
-    line-height: 60px;
-    background-color: #666666;
-    border-top: 8px solid #4aaaa5;
 }
 
-/*this footer wasn't working the same as the other ones*/
-.profileFooter{
+#header {
+    background-color: midnightblue;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #666666;
-    border-top: 8px solid #4aaaa5;
 }
 
-.navbar{
-    display: flex;
-    margin: 0 auto;
-    padding: 0 0 0 0;
-    background-color: white;
+.nav-link {
+    color: white;
 }
 
-/*just a give a little separation between rows and from the sides*/
-.col-md-6{
-    padding-bottom: 25px;
-}
-
-.card-deck{
-    padding-right: 30px;
-}
-
-p{
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-}
-
-.navbar-nav{
-    flex-direction: row;
-}
-
-/*Gives the color of navbar all across the screen and lets the links and namebrand stay centered*/
-#header{
-    width: 100%;
-    background-color: white;
+#footer-links {
+    color: whitesmoke;
 }
 
 /*Define the differences in format for different widths of the screen*/

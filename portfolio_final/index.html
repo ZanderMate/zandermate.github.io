@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Biography Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>Biography Page</title>
 </head>
 
-<body class="backgroundPrism">
-    <!--Added here to cover more and avoid white space between content and footer-->
-    <div id="header">
-        <nav class="navbar navbar-expand-sm justify-content-center">
-            <h1 class="navbar-brand">Alexander Griep</h1>
+<body>
+    <div class="container-fluid">
+        <nav id="header" class="navbar w-100 navbar-expand-sm justify-content-center fixed-top">
+            <a class="navbar-brand" id="brandname">Alex Griep</a>
             <ul id="navLinks" class="nav navbar-nav ml-auto w-100">
+                <li class="nav-item">
+                    <a class="nav-link" href=""></a>
+                </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://zandermate.github.io/homework_2/index.html">About</a>
                 </li>
@@ -26,7 +34,7 @@
             </ul>
         </nav>
     </div>
-    <div id="contentContainer" class="container">
+    <div id="contentContainer" class="container min-vh-100">
         <h2>About Me</h2>
         <section class="mb-3">
             <div class="row">
@@ -77,9 +85,13 @@
             </div>
         </section>
     </div>
-    <footer class="footer fixed-bottom">
+    <footer class="footer fixed-bottom bg-dark">
         <div>
             <div class="text-center text-muted">©Copyright</div>
+            <div class="text-center" id="footer-links">
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-github-square"></i>
+            </div>
         </div>
     </footer>
 </body>
