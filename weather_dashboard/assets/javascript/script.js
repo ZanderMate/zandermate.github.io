@@ -48,20 +48,23 @@ $(".search").click(function () {
                 url: forecastURL,
                 method: "GET"
             }).then(function (response) {
+                console.log(response);
                 $(".forecast").empty();
                 $(".forecast-title").empty();
                 var forecastTitle = $("<h4>").text("5-Day Forecast").addClass("pt-4");
                 $(".forecast-title").append(forecastTitle);
                 //loop to enter all the info for 5-day forecast
-                for (var i = 0; i < 5; i++) {
+                for (var i = 2; i < 40; i+=8) {
+                    //console.log(i)
                     var newDiv = $("<div>").addClass("bg-primary text-white p-3 m-2").attr('id', i);
+                    var dayDate = new Date(response.list[i].dt_txt);
                     var newRow = $("<div>").addClass("next-line" + [i]);
                     var newTemp = $("<div>").addClass("text-white");
                     var newHumidity = $("<div>").addClass("text-white");
-                    iconCode = response.list[i].weather[0].icon;
-                    iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
-                    iconDiv = $("<img>").addClass("").attr('src', iconURL).attr('alt', "another weather symbol");
-                    newDiv.html(moment().add((i + 1), 'days').format('L'));
+                    var iconCode = response.list[i].weather[0].icon;
+                    var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
+                    var iconDiv = $("<img>").attr('src', iconURL).attr('alt', "another weather symbol");
+                    newDiv.html(moment(dayDate).format('L'));
                     $(".forecast").append(newDiv);
                     $(newDiv).append(newRow);
                     $(".next-line" + i).append(iconDiv);
@@ -142,6 +145,7 @@ $(".clear-button").click(function (event) {
     event.preventDefault();
     $(".list-buttons").empty();
     localStorage.removeItem('cityList');
+    location.reload();
 })
 
 //upon loading of page, checks to see if anything is stored in cityList localstorage and adds buttons with terms
