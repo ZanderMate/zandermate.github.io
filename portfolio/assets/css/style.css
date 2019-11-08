@@ -35,6 +35,14 @@ h2 {
     margin-bottom: 10px;
 }
 
+.contact-title {
+    text-decoration: underline;
+}
+
+.contact-list {
+    line-height: 25%;
+}
+
 .nav-link {
     color: white;
 }
