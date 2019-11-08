@@ -5,3 +5,11 @@
 .search-title{
     font-size: 25px;
 }
+
+body {
+    background: url(../images/leaves.png);
+}
+
+h1 {
+    font-family: 'Yeon Sung', cursive;
+}

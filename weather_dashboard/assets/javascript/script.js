@@ -12,7 +12,7 @@ $(".search").click(function () {
     var cityName = $("input").val().trim();
     var newLi = $("<li>");
     newLi.text(cityName);
-    newLi.addClass("btn btn-outline-dark line-item list-group-item").attr('id', "city-name-" + cityList.length);
+    newLi.addClass("btn btn-dark-outline bg-transparent line-item list-group-item").attr('id', "city-name-" + cityList.length);
     $(".list-buttons").append(newLi);
     var cityButtons = { name: cityName };
     cityList.push(cityButtons);
@@ -161,3 +161,8 @@ $(document).ready(function () {
         }
     }
 })
+
+function getCities() {
+    cityList = JSON.parse(localStorage.getItem("cityList"));
+    var lastCity = cityList[cityList.length - 1].name;
+}
