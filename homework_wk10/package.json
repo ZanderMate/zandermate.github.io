@@ -1,0 +1,19 @@
+{
+  "name": "homework_wk10",
+  "version": "1.0.0",
+  "description": "creating a colorful profile to showcase github info",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "fs": "^0.0.1-security",
+    "github-scraper": "^6.8.0",
+    "inquirer": "^7.0.0",
+    "util": "^0.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node"
+  },
+  "author": "zandermate",
+  "license": "ISC"
+}
