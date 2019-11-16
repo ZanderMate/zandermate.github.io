@@ -2,42 +2,38 @@ const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require("fs");
 const util = require("util");
-const gs = require('git-scraper');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
 function promptUser() {
-  return inquirer.prompt([
-    {
-      type: "input",
-      name: "name",
-      message: "What is your name?"
-    },
-    {
-      type: "input",
-      name: "username",
-      message: "What is your GitHub username?"
-    },
-    {
-      type: "input",
-      name: "color",
-      message: "What is your favorite color?"
-    },
-    {
-      type: "input",
-      name: "location",
-      message: "where are you from?"
-    }
-  ])
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your name?"
+        },
+        {
+            type: "input",
+            name: "username",
+            message: "Enter your GitHub username:"
+        },
+        {
+            type: "input",
+            name: "color",
+            message: "What is your favorite color?"
+        }
+    ])
 }
 
-function callAPI(answers) {
-  let usernameCall = axios.get('https://api.github.com/search/users?q=' + answers.username);
-  console.log(usernameCall);
+async function callAPI(answers) {
+    let usernameCall = await axios.get('https://api.github.com/users/' + answers.username);
+    let objData = usernameCall.data;
+    let newData = JSON.parse(JSON.stringify(objData));
+    return newData;
 }
 
-function generateHTML(answers) {
-  return `<!DOCTYPE html>
+function generateHTML(answers, data) {
+    return `<!DOCTYPE html>
   <html lang="en">
   
   <head>
@@ -52,47 +48,47 @@ function generateHTML(answers) {
   </head>
   <body>
       <div class="container mt-5">
-          <div class="row"><img src="#" alt="profile picture" class="mx-auto d-block"></div>
+          <div class="row"><img src="${data.avatar_url}" alt="profile picture" class="mx-auto d-block"  style="max-height: 200px;"></div>
           <div class="row justify-content-center">
               <div class="col-md-12 text-center">
-                  <div class="card text-white" style="background-color: green;">
+                  <div class="card text-white" style="background-color: ${answers.color};">
                       <div class="card-body">
-                          <h1>Hi! My name is Alex Griep!</h1>
+                          <h1>Hi! My name is ${answers.name}!</h1>
                       </div>
                   </div>
               </div>
           </div>
           <div class="row">
               <div class="col-md-4">
-                  <div class="card text-white m-2" style="background-color: green;">
-                      <div class="card-body fas fa-location-arrow text-center"> Minneapolis, MN</div>
+                  <div class="card text-white m-2" style="background-color: ${answers.color};">
+                      <div class="card-body fas fa-location-arrow text-center"> ${data.location}</div>
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="card text-white m-2" style="background-color: green;">
-                      <div class="card-body fab fa-github text-center"> zandermate</div>
+                  <div class="card text-white m-2" style="background-color: ${answers.color};">
+                      <div class="card-body fab fa-github text-center"> ${answers.username}</div>
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="card text-white m-2" style="background-color: green;">
-                      <div class="card-body fas fa-rss text-center"> blog</div>
+                  <div class="card text-white m-2" style="background-color: ${answers.color};">
+                      <div class="card-body fas fa-rss text-center"> ${data.blog}</div>
                   </div>
               </div>
           </div>
           <div class="row justify-content-center">
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: green;">
-                  <div class="card-body">Public Repositories: 5</div>
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+                  <div class="card-body">Public Repositories: ${data.public_repos}</div>
               </div>
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: green;">
-                  <div class="card-body">Stars: 0</div>
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+                  <div class="card-body">Stars: B</div>
               </div>
           </div>
           <div class="row justify-content-center">
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: green;">
-                  <div class="card-body">Followers: 17</div>
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+                  <div class="card-body">Followers: ${data.followers}</div>
               </div>
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: green;">
-                  <div class="card-body">Following: 15</div>
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+                  <div class="card-body">Following: ${data.following}</div>
               </div>
           </div>
       </div>
@@ -100,16 +96,17 @@ function generateHTML(answers) {
   </html>`;
 }
 
-promptUser()
-  .then(function (answers) {
-    console.log(answers);
-    const html = generateHTML(answers);
+async function init() {
+    console.log("Hello!");
+    try {
+        const answers = await promptUser();
+        let data = await callAPI(answers);
+        const html = generateHTML(answers, data);
+        await writeFileAsync("index.html", html);
+        console.log("Successfully wrote to index.html");
+    } catch (err) {
+        console.log(err);
+    }
+}
 
-    return writeFileAsync("index.html", html);
-  })
-  .then(function () {
-    console.log("Successfully wrote to index.html");
-  })
-  .catch(function (err) {
-    console.log(err);
-  });
+init();
