@@ -73,17 +73,17 @@ function generateHTML(answers, data) {
           <div class="row">
               <div class="col-md-4">
                   <div class="card text-white m-2" style="background-color: ${answers.color};">
-                      <div class="card-body fas fa-location-arrow text-center"> ${data.location}</div>
+                      <a href="https://www.google.com/maps/place/${data.location}" style="text-decoration:none;" class="card-body fas fa-location-arrow text-center"> ${data.location}</a>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="card text-white m-2" style="background-color: ${answers.color};">
-                      <div class="card-body fab fa-github text-center"> ${answers.username}</div>
+                      <a href="https://github.com/${answers.username}"  style="text-decoration:none;" class="card-body fab fa-github text-center"> ${answers.username}</a>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="card text-white m-2" style="background-color: ${answers.color};">
-                      <div class="card-body fas fa-rss text-center"> ${data.blog}</div>
+                      <a href="https://www.${data.blog}"  style="text-decoration:none;" class="card-body fas fa-rss text-center"> ${data.blog}</a>
                   </div>
               </div>
           </div>
@@ -115,7 +115,7 @@ async function init() {
         let data = await callAPI(answers);
         data.stars = await getStars(data);
         const html = generateHTML(answers, data);
-
+        console.log(data.blog);
         await writeFileAsync("index.html", html);
 
         let readHtml = fs.readFileSync('index.html', 'utf8');
