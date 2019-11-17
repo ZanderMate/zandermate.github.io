@@ -2,6 +2,8 @@ const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require("fs");
 const util = require("util");
+const pdf = require('html-pdf');
+let sum = 0
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -30,6 +32,16 @@ async function callAPI(answers) {
     let objData = usernameCall.data;
     let newData = JSON.parse(JSON.stringify(objData));
     return newData;
+}
+
+async function getStars(data) {
+    let starsCall = await axios.get('https://api.github.com/users/' + data.login + '/repos');
+    let starObj = starsCall.data;
+    let starCount = JSON.parse(JSON.stringify(starObj));
+    for (var i = 0; i < starCount.length; i++) {
+        sum += starObj[i].stargazers_count;
+    }
+    return sum;
 }
 
 function generateHTML(answers, data) {
@@ -76,18 +88,18 @@ function generateHTML(answers, data) {
               </div>
           </div>
           <div class="row justify-content-center">
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; background-color: ${answers.color};">
                   <div class="card-body">Public Repositories: ${data.public_repos}</div>
               </div>
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
-                  <div class="card-body">Stars: B</div>
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; background-color: ${answers.color};">
+                  <div class="card-body">Stars: ${data.stars}</div>
               </div>
           </div>
           <div class="row justify-content-center">
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; background-color: ${answers.color};">
                   <div class="card-body">Followers: ${data.followers}</div>
               </div>
-              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; width: 45%; background-color: ${answers.color};">
+              <div class="card col-md-6 text-center pt-4 text-white" style="min-height: 125px; background-color: ${answers.color};">
                   <div class="card-body">Following: ${data.following}</div>
               </div>
           </div>
@@ -101,8 +113,19 @@ async function init() {
     try {
         const answers = await promptUser();
         let data = await callAPI(answers);
+        data.stars = await getStars(data);
         const html = generateHTML(answers, data);
+
         await writeFileAsync("index.html", html);
+
+        let readHtml = fs.readFileSync('index.html', 'utf8');
+        let options = { format: 'Letter' };
+
+        pdf.create(readHtml, options).toFile('index.pdf', function (err, res) {
+            if (err) return console.log(err);
+            console.log(res);
+        });
+
         console.log("Successfully wrote to index.html");
     } catch (err) {
         console.log(err);
