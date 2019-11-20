@@ -2,11 +2,6 @@ const inquirer = require("inquirer");
 
 inquirer.prompt([
     {
-        type: "list",
-        message: "Which job are we starting with?",
-        name: "title"
-    },
-    {
         type: "input",
         message: "What is the employee's name?",
         name: "name"
