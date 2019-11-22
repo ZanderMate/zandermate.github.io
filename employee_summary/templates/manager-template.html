@@ -1,14 +1,15 @@
 <div class="card" style="width: 18rem;">
     <div class="card-header bg-dark text-white">
-        <h3 class="card-title">Employee Name</h3>
+        <h3 class="card-title">${data.name}</h3>
         <h5 class="card-subtitle mb-2 text-white fas fa-bullhorn">
             Manager</h5>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID Number: 1</li>
-            <li class="list-group-item">email: test@test.com</li>
-            <li class="list-group-item">office: 123</li>
+            <li class="list-group-item">ID Number: ${data.id}</li>
+            <li class="list-group-item">email: ${data.email}</li>
+            <li class="list-group-item">office: ${data.officeNumber}</li>
         </ul>
     </div>
 </div>
+
