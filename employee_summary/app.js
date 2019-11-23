@@ -10,52 +10,20 @@ const Intern = require("./lib/Intern.js");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 
-function continuingQs() {
-    return inquirer.prompt([
-        {
-            type: "list",
-            message: "What is the title of the next person's title on the team",
-            name: "nextMember",
-            choices: ["Engineer", "Intern", "No other members"]
-        }
-    ])
-}
-
-function promptIntern() {
-    return inquirer.prompt([
-        {
-            type: "input",
-            message: "What is the intern's name?",
-            name: "name"
-        },
-        {
-            type: "input",
-            message: "What is the intern's ID number?",
-            name: "id"
-        },
-        {
-            type: "input",
-            message: "What is the intern's e-mail address?",
-            name: "email"
-        },
-        {
-            type: "input",
-            message: "What school is the intern from?",
-            name: "school"
-        },
-        {
-            type: "confirm",
-            message: "Any other interns on the team?",
-            name: "nextMember"
-        }
-    ])
-}
-
-async function generateHTML(manager) {
-    let corkboard = Employee.prototype.generateEmployeeHTML();
-    let managerCard = Manager.prototype.generateManagerHTML(manager);
-    corkboard = corkboard.replace('Something Bizarre', managerCard)
-    await writeFileAsync("output/team.html", corkboard);
+function generateHTML(manager, engineer, intern) {
+    let corkboard = Employee.prototype.generateHTML();
+    let managerCard = Manager.prototype.generateHTML(manager);
+    corkboard = corkboard.replace('<div class="something-bizarre"></div>', managerCard);
+    for (var i = 0; i < engineer.length; i++) {
+        console.log(engineer[i]);
+        let engineerCard = Engineer.prototype.generateHTML(engineer[i]);
+        corkboard = corkboard.replace('<div class="something-bizarre"></div>', engineerCard);
+    }
+    for (var j = 0; j < intern.length; j++) {
+        let internCard = Intern.prototype.generateHTML(intern[j]);
+        corkboard = corkboard.replace('<div class="something-bizarre"></div>', internCard);
+    }
+    return corkboard;
 }
 
 async function init() {
@@ -63,14 +31,35 @@ async function init() {
     try {
         const bossAnswers = await Manager.prototype.promptManager();
         let managerInfo = new Manager(bossAnswers.name, bossAnswers.id, bossAnswers.email, bossAnswers.officeNumber);
-        let nextPerson = continuingQs();
-        console.log(nextPerson);
-        generateHTML(managerInfo);
+        let engineerInfo = [];
+        let internInfo = [];
+        let moreMembers = await Engineer.prototype.continuingEngineer();
+        console.log(moreMembers);
+        while (moreMembers.nextEngineer === true) {
+            const nerdAnswers = await Engineer.prototype.promptEngineer();
+            let engineerAnswers = new Engineer(nerdAnswers.name, nerdAnswers.id, nerdAnswers.email, nerdAnswers.gitHub);
+            engineerInfo.push(engineerAnswers);
+            moreMembers = await Engineer.prototype.continuingEngineer();
+        };
+        let someInterns = await Intern.prototype.continuingIntern();
+        while (someInterns.nextIntern === true) {
+            const peonAnswers = await Intern.prototype.promptIntern();
+            let internAnswers = new Intern(peonAnswers.name, peonAnswers.id, peonAnswers.email, peonAnswers.school);
+            internInfo.push(internAnswers);
+            someInterns = await Intern.prototype.continuingIntern();
+        }
+        // if (nextPerson === "Intern") {
+        //     await Intern.prototype.promptIntern();
+        // } else if (nextPerson === "Engineer") {
+        //     await Engineer.prototype.promptEngineer();
+        // }
+        //let internInfo = new Intern(peonAnswers.name, peonAnswers.id, peonAnswers.email, peonAnswers.school);
+        //generateHTML(managerInfo);
         //const engineerAnswers = await Engineer.prototype.promptEngineer();
-        //const internAnswers = await promptIntern();
         //if (managerAnswers.newMembers === "Engineer") {
-        //const html = generateHTML(answers);
+        const html = generateHTML(managerInfo, engineerInfo, internInfo);
         //await writeFileAsync("index.html", html);
+        writeFileAsync("output/team.html", html);
         console.log("Successfully wrote to html file!")
     } catch (err) {
         console.log(err);

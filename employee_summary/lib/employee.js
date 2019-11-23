@@ -1,9 +1,6 @@
 const App = require("../app");
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const util = require("util");
-
-// const writeFileAsync = util.promisify(fs.writeFile);
 
 class Employee {
     constructor(name, id, email) {
@@ -43,9 +40,9 @@ class Employee {
             }
         ])
     };
-    generateEmployeeHTML() {
-    return fs.readFileSync('templates/employee-template.html', 'utf8');
-}
+    generateHTML() {
+        return fs.readFileSync('templates/employee-template.html', 'utf8');
+    }
 };
 
 

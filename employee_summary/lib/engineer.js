@@ -1,12 +1,16 @@
 const Employee = require("./employee");
+const App = require("../app");
+const inquirer = require("inquirer");
+const fs = require("fs");
+const util = require("util");
 
 class Engineer extends Employee {
     constructor(name, id, email, gitHub) {
         super(name, id, email);
-        this.github = gitHub;
+        this.gitHub = gitHub;
     }
     getGithub() {
-        return this.github;
+        return this.gitHub;
     };
     getRole() {
         return "Engineer";
@@ -32,13 +36,21 @@ class Engineer extends Employee {
                 type: "input",
                 message: "What is the engineer's GitHub username?",
                 name: "gitHub"
-            },
-            {
-                type: "confirm",
-                message: "Any other engineers on the team?",
-                name: "nextMember",
             }
         ])
+    }
+    continuingEngineer() {
+        return inquirer.prompt([
+            {
+                type: "confirm",
+                message: "Are there any engineers on the team?",
+                name: "nextEngineer"
+            }
+        ]);
+    }
+    generateHTML(data) {
+        let engineerAnswers = fs.readFileSync('templates/engineer-template.html', 'utf8');
+        return eval('`' + engineerAnswers + '`');
     }
 }
 

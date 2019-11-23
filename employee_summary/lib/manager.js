@@ -5,9 +5,10 @@ const util = require("util");
 const Employee = require("./employee")
 
 class Manager extends Employee {
-    constructor(name, id, email, officeNumber) {
+    constructor(name, id, email, officeNumber, nextMember) {
         super(name, id, email);
         this.officeNumber = officeNumber;
+        this.nextMember = nextMember;
     };
     getRole() {
         return "Manager";
@@ -36,16 +37,10 @@ class Manager extends Employee {
                 type: "input",
                 message: "What is the manager's office number?",
                 name: "officeNumber"
-            },
-            {
-                type: "list",
-                message: "What is the title of the next person's title on the team",
-                name: "nextMember",
-                choices: ["Engineer", "Intern", "No other members"]
             }
         ])
     };
-    generateManagerHTML(data) {
+    generateHTML(data) {
         let managerAnswers = fs.readFileSync('templates/manager-template.html', 'utf8');
         return eval('`' + managerAnswers + '`');
     };
