@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 
+//Constructor for subclass Engineer
 class Engineer extends Employee {
     constructor(name, id, email, gitHub) {
         super(name, id, email);
@@ -15,6 +16,7 @@ class Engineer extends Employee {
     getRole() {
         return "Engineer";
     };
+    //questions just for the engineer
     promptEngineer() {
         return inquirer.prompt([
             {
@@ -39,6 +41,7 @@ class Engineer extends Employee {
             }
         ])
     }
+    //to verify if there are anymore engineers
     continuingEngineer() {
         return inquirer.prompt([
             {
@@ -48,6 +51,7 @@ class Engineer extends Employee {
             }
         ]);
     }
+    //generates HTML string using engineer html template
     generateHTML(data) {
         let engineerAnswers = fs.readFileSync('templates/engineer-template.html', 'utf8');
         return eval('`' + engineerAnswers + '`');

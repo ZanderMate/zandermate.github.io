@@ -1,9 +1,10 @@
+const Employee = require("./employee");
 const App = require("../app");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const Employee = require("./employee")
 
+//constructor for Manager subclass
 class Manager extends Employee {
     constructor(name, id, email, officeNumber, nextMember) {
         super(name, id, email);
@@ -16,6 +17,7 @@ class Manager extends Employee {
     getOfficeNumber() {
         return this.officeNumber;
     };
+    //questions for Manager subclass
     promptManager() {
         return inquirer.prompt([
             {
@@ -40,6 +42,7 @@ class Manager extends Employee {
             }
         ])
     };
+    //generate manager html template into a string
     generateHTML(data) {
         let managerAnswers = fs.readFileSync('templates/manager-template.html', 'utf8');
         return eval('`' + managerAnswers + '`');

@@ -1,7 +1,7 @@
-const App = require("../app");
-const inquirer = require("inquirer");
 const fs = require("fs");
+const App = require("../app");
 
+//Constructor for Employee
 class Employee {
     constructor(name, id, email) {
         this.name = name;
@@ -21,25 +21,7 @@ class Employee {
     getRole() {
         return "Employee";
     };
-    promptEmployee() {
-        return inquirer.prompt([
-            {
-                type: "input",
-                message: "What is the manager's name?",
-                name: "name"
-            },
-            {
-                type: "input",
-                message: "What is the manager's ID number?",
-                name: "id"
-            },
-            {
-                type: "input",
-                message: "What is the manager's e-mail address?",
-                name: "email"
-            }
-        ])
-    };
+    //generates employee html template into a string
     generateHTML() {
         return fs.readFileSync('templates/employee-template.html', 'utf8');
     }

@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 
+//constructor for Intern subclass
 class Intern extends Employee {
     constructor(name, id, email, school) {
         super(name, id, email);
@@ -39,10 +40,12 @@ class Intern extends Employee {
             }
         ])
     }
+    //generate intern html template into a string
     generateHTML(data) {
         let internAnswers = fs.readFileSync('templates/intern-template.html', 'utf8');
         return eval('`' + internAnswers + '`');
     }
+    //question to verify if there are anymore interns
     continuingIntern() {
         return inquirer.prompt([
             {
