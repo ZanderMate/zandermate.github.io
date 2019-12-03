@@ -36,11 +36,13 @@ var deleteNote = function (id) {
 var renderActiveNote = function () {
   $saveNoteBtn.hide();
   if (activeNote.id) {
+    console.log("IF");
     $noteTitle.attr("readonly", true);
     $noteText.attr("readonly", true);
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
   } else {
+    console.log("ELSE");
     $noteTitle.attr("readonly", false);
     $noteText.attr("readonly", false);
     $noteTitle.val("");
@@ -55,10 +57,10 @@ var handleNoteSave = function () {
     text: $noteText.val()
   };
 
-  saveNote(newNote).then(function (data) {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  saveNote(newNote);
+  getAndRenderNotes();
+  renderActiveNote();
+
 };
 
 // Delete the clicked note
@@ -82,6 +84,7 @@ var handleNoteDelete = function (event) {
 // Sets the activeNote and displays it
 var handleNoteView = function () {
   activeNote = $(this).data();
+  console.log(activeNote);
   renderActiveNote();
 };
 

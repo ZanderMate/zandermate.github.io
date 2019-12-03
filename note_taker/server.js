@@ -39,7 +39,7 @@ app.post("/api/notes", function (req, res) {
 
 app.delete("/api/notes/:id", function (req, res) {
     const deletedNoteID = req.params.id;
-    notes.splice(deletedNoteID, 1);
+    notes.splice((deletedNoteID - 1), 1);
     IDNum();
     fs.writeFileSync("./db/db.json", JSON.stringify(notes), function(err) {
         if (err) throw err
@@ -53,6 +53,6 @@ app.listen(PORT, function () {
 
 function IDNum() {
     for (i = 0; i < notes.length; i++) {
-        notes[i].id = i;
+        notes[i].id = (i + 1);
     }
 }
