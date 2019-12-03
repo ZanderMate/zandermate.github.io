@@ -1,5 +1,13 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
+const savedData = fs.readFileSync("./db/db.json", "UTF-8");
+let notes;
+if (savedData) {
+    const savedNotes = JSON.parse(savedData);
+    notes = savedNotes;
+    IDNum();
+}
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -20,14 +28,31 @@ app.get("/api/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "db/db.json"))
 });
 
-app.post("/api/notes", function(req, res) {
-    var newNote = req.body;  
-    console.log(newNote);
+app.post("/api/notes", function (req, res) {
+    let newNote = req.body;
     notes.push(newNote);
-    res.json(newNote);
-  });
+    IDNum();
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes), function (err) {
+        if (err) throw err
+    });
+});
 
-//Listening at PORT
+app.delete("/api/notes/:id", function (req, res) {
+    const deletedNoteID = req.params.id;
+    notes.splice(deletedNoteID, 1);
+    IDNum();
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes), function(err) {
+        if (err) throw err
+    });
+});
+
+//Listening at PORT 3000 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
+
+function IDNum() {
+    for (i = 0; i < notes.length; i++) {
+        notes[i].id = i;
+    }
+}
