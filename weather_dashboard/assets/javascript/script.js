@@ -5,6 +5,7 @@ if (localStorage.getItem("cityList")) {
 }
 else {
     cityList = [];
+    console.log(cityList.length);
 }
 
 //click eventlistener after entering a city name into search input
@@ -57,8 +58,17 @@ $(document).ready(function () {
 
 //populate last search in cityList array in localstorage
 function lastCitySearch() {
-    cityList = JSON.parse(localStorage.getItem("cityList"));
-    var lastCity = cityList[cityList.length - 1].name;
+    var lastCity = null;
+    if (localStorage.getItem("cityList")) {
+        cityList = JSON.parse(localStorage.getItem("cityList"))
+    }
+    else {
+        cityList = [];
+    }
+    console.log(cityList.length);
+    if (cityList.length > 0) {
+        lastCity = cityList[cityList.length - 1].name;
+    }
     return lastCity;
 }
 
