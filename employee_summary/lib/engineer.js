@@ -1,8 +1,8 @@
 const Employee = require("./employee");
-const App = require("../app");
+//const App = require("../app");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
+//const util = require("util");
 
 //Constructor for subclass Engineer
 class Engineer extends Employee {
