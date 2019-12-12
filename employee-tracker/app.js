@@ -1,6 +1,5 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const cTable = require("console.table");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -28,7 +27,7 @@ function startApp() {
                 "View All Employees",
                 "View All Employees by Department",
                 "View All Employees by Role",
-                "View all Employees by Manager",
+                //"View all Employees by Manager",
                 "Add Department",
                 "Add Role",
                 "Add Employee",
@@ -49,9 +48,9 @@ function startApp() {
                 case "View All Employees by Role":
                     showEmployeesRole();
                     break;
-                case "View All Employees by Manager":
-                    showEmployeesManager();
-                    break;
+                // case "View All Employees by Manager":
+                //     showEmployeesManager();
+                //     break;
                 case "Add Department":
                     addDepartment();
                     break;
@@ -78,7 +77,7 @@ function startApp() {
 };
 
 function showAllEmployees() {
-    let sql = "SELECT employee.id, first_name, last_name, title, department_name, manager_id FROM employee INNER JOIN role ON employee.role_id = role.id INNER JOIN department ON role.department_id = department.id;";
+    let sql = "SELECT employee.id, first_name, last_name, title, department_name, salary, manager_id FROM employee INNER JOIN role ON employee.role_id = role.id INNER JOIN department ON role.department_id = department.id ORDER BY last_name ASC;";
     connection.query(sql, function (err, result) {
         if (err) throw err;
         allEmployees = result;
@@ -143,33 +142,33 @@ function showEmployeesRole() {
     })
 }
 
-function showEmployeesManager() {
-    managerArray = [];
-    connection.query("SELECT first_name, last_name FROM employee", function (err, result) {
-        if (err) throw err;
+// function showEmployeesManager() {
+//     managerArray = [];
+//     connection.query("SELECT first_name, last_name FROM employee", function (err, result) {
+//         if (err) throw err;
 
-        for (var i = 0; i < result.length; i++) {
-            let managers = result[i].first_name + " " + result[i].last_name;
-            managerArray.push(managers);
-        }
-        inquirer.prompt([
-            {
-                name: "manager",
-                type: "list",
-                message: "Which manager's subordinates would you like to look at?",
-                choices: managerArray
-            }
-        ]).then(function (answer) {
-            let sql = "SELECT employee.first_name, employee.last_name, role.title FROM employee INNER JOIN role ON employee.role_id = role.id WHERE manager_id = ?";
-            connection.query(sql, [answer.manager], function (err, result) {
-                if (err) throw err;
-                console.table(result);
-                startApp();
-            });
+//         for (var i = 0; i < result.length; i++) {
+//             let managers = result[i].first_name + " " + result[i].last_name;
+//             managerArray.push(managers);
+//         }
+//         inquirer.prompt([
+//             {
+//                 name: "manager",
+//                 type: "list",
+//                 message: "Which manager's subordinates would you like to look at?",
+//                 choices: managerArray
+//             }
+//         ]).then(function (answer) {
+//             let sql = "SELECT employee.first_name, employee.last_name, role.title FROM employee INNER JOIN role ON employee.role_id = role.id WHERE manager_id = ?";
+//             connection.query(sql, [answer.manager], function (err, result) {
+//                 if (err) throw err;
+//                 console.table(result);
+//                 startApp();
+//             });
 
-        });
-    })
-}
+//         });
+//     })
+// }
 
 function addDepartment() {
     inquirer.prompt(
@@ -404,7 +403,6 @@ function updateManager() {
         if (err) throw err;
         for (var i = 0; i < result.length; i++) {
             let employee = result[i].first_name + " " + result[i].last_name;
-            // let managers = result[i].first_name + " " + result[i].last_name;
             let idNums = result[i].id;
             employeeArray.push(employee);
             employeeIDArray.push(idNums)
