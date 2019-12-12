@@ -320,12 +320,10 @@ function removeEmployee() {
                 if (employeeArray[j] === answer.deletename) {
                     deleteID = result[j].id;
                 }
-                console.log(deleteID);
             }
             let sql = "DELETE FROM employee WHERE id = ?";
             connection.query(sql, [deleteID], function (err, result) {
                 if (err) throw err;
-                console.log("You have deleted an employee!")
             });
             startApp();
         });
@@ -385,7 +383,6 @@ function updateRole() {
                         break;
                     }
                 }
-                console.log(roleID + " & " + employeeID);
                 connection.query(sql, [roleID, employeeID], function (err, result) {
                     if (err) throw err;
                 });
@@ -439,7 +436,6 @@ function updateManager() {
                     break;
                 }
             }
-            console.log(managerID + " & " + idNumber);
             connection.query(sql, [managerID, idNumber], function (err, result) {
                 if (err) throw err;
             });
