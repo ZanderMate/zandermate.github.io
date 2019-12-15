@@ -1,0 +1,17 @@
+.jumbotron {
+    background-color: coral;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    color: black;
+    font-size: 48px;
+}
+
+body {
+    background-color: coral;
+}
+
+button{
+    margin-top: 5px;
+}
