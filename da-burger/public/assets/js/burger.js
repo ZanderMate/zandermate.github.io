@@ -18,9 +18,8 @@ $(function () {
     })
 
 
-    $(".submit-button").on("submit", function (event) {
+    $(".submit-button").on("click", function (event) {
         event.preventDefault();
-
         var newBurger = {
             burger_name: $("#burger_name").val().trim(),
             devoured: 0
@@ -42,7 +41,7 @@ $(function () {
             type: "DELETE"
         }).then(
             function () {
-                console.log("deleted cat", id);
+                console.log("deleted burger", id);
                 location.reload();
             }
         )
