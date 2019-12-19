@@ -12,6 +12,8 @@ body {
     background-color: coral;
 }
 
-button{
-    margin-top: 5px;
+li{
+    background-color: lightgray;
+    min-height: 40px;
+    border: 2px solid lightsalmon;
 }

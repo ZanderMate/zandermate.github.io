@@ -1,18 +1,18 @@
 $(function () {
     $(".change-eaten").on("click", function (event) {
+        console.log("dataid:" +  $(this).data("id"));
         var id = $(this).data("id");
-        //var newEaten = $(this).data("neweat");
-        //console.log(newEaten);
+
         var newEatState = {
-            devoured: true
+            devour: true
         };
-        console.log(id)
+        console.log(newEatState.devour)
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newEatState
         }).then(
             function () {
-                console.log("changed eaten to", newEaten);
+                console.log("changed eaten status to devoured");
                 location.reload();
             }
         )
@@ -27,7 +27,7 @@ $(function () {
         };
         console.log(newBurger);
         $.ajax("/api/burgers/", {
-            type: "POST",
+            method: "POST",
             data: newBurger
         }).then(
             function () {

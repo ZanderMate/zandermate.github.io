@@ -5,8 +5,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <ul>
+    <div class="col-md-6" style="min-height: 100px;">
+      <h3>Ready to Be Eaten:</h3>
+      <ul class="align-middle" style="list-style-type: none;">
         {{#each burger}}
         {{#unless devoured}}
         {{> burgers/burger-block}}
@@ -15,13 +16,14 @@
       </ul>
     </div>
     <div class="col-md-6">
-      <ul>
+      <h3 style="text-align: right;">Already Eaten:</h3>
+      <ul style="list-style-type: none;">
         {{#each burger}}
         {{#if devoured}}
         {{> burgers/burger-block}}
         {{/if}}
         {{/each}}
-      </ul>
+      </ul4>
     </div>
   </div>
 </div>

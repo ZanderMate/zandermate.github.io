@@ -4,6 +4,7 @@
 
 // Dependencies
 var Sequelize = require("sequelize");
+var mysql = require("mysql");
 
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize("burger_db", "root", "", {
@@ -16,6 +17,17 @@ var sequelize = new Sequelize("burger_db", "root", "", {
     idle: 10000
   }
 });
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.creatConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'burger_db'
+  });
+}
 
 // Exports the connection for other files to use
 module.exports = sequelize;
