@@ -9,7 +9,7 @@ var mysql = require("mysql");
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize("burger_db", "root", "", {
   host: "localhost",
-  port: 3306,
+  port: 3307,
   dialect: "mysql",
   pool: {
     max: 5,
