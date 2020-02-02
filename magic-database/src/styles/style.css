@@ -14,9 +14,10 @@ h1{
 
 .row{
     margin-top: 15px;
+    height: 100%
 }
 
-.links{
+.link{
     color: green;
     text-decoration: none;
 }

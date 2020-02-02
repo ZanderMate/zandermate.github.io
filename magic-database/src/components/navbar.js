@@ -3,8 +3,8 @@ import "../styles/style.css";
 
 const Navbar = () => {
     return (
-        <nav class="navbar navbar-default bg-dark">
-            <h1 class="navbar-brand">
+        <nav className="navbar navbar-default bg-dark">
+            <h1 className="navbar-brand">
                 Alex's Personal MtG Hub
          </h1>
             <ul className="nav">
@@ -14,12 +14,12 @@ const Navbar = () => {
                 <li>
                     <a href="commander.html" className="navbarLinks">Commander</a>
                 </li>
-                <li>
+                {/* <li>
                     <a href="modern.html" className="navbarLinks">Modern</a>
                 </li>
                 <li>
                     <a href="standard.html" className="navbarLinks">Standard</a>
-                </li>
+                </li> */}
             </ul>
         </nav>
     )
