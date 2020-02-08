@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "firstName": "Ashley",
+        "lastName": "Jones",
+        "email": "ashleyjones@ourcompany.com",
+        "dob": "05/31/1988",
+        "img": "https://randomuser.me/api/portraits/thumb/women/70.jpg"
+    },
+    {
+        "id": 2,
+        "firstName": "Pamela",
+        "lastName": "Henderson",
+        "email": "p.henderson@ourcompany.com",
+        "dob": "12/17/1986",
+        "img": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+    },
+    {
+        "id": 3,
+        "firstName": "Diane",
+        "lastName": "Watson",
+        "email": "watson.diane@ourcompany.com",
+        "dob": "01/3/1997",
+        "img": "https://randomuser.me/api/portraits/thumb/women/48.jpg"
+    },
+    {
+        "id": 4,
+        "firstName": "Beverly",
+        "lastName": "Ross",
+        "email": "Bev.Ross@ourcompany.com",
+        "dob": "09/27/1970",
+        "img": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
+    },
+    {
+        "id": 5,
+        "firstName": "Louise",
+        "lastName": "Wilson",
+        "email": "wilson.louise@ourcompany.com",
+        "dob": "06/23/1972",
+        "img": "https://randomuser.me/api/portraits/thumb/women/51.jpg"
+    },
+    {
+        "id": 6,
+        "firstName": "Aaron",
+        "lastName": "Barnes",
+        "email": "watson.diane@ourcompany.com",
+        "dob": "10/12/1979",
+        "img": "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+    },
+    {
+        "id": 7,
+        "firstName": "Cheryl",
+        "lastName": "Robinson",
+        "email": "watson.diane@ourcompany.com",
+        "dob": "10/25/1986",
+        "img": "https://randomuser.me/api/portraits/thumb/women/14.jpg"
+    },
+    {
+        "id": 8,
+        "firstName": "Scott",
+        "lastName": "Clark",
+        "email": "watson.diane@ourcompany.com",
+        "dob": "10/29/1991",
+        "img": "https://randomuser.me/api/portraits/thumb/men/96.jpg"
+    },
+    {
+        "id": 9,
+        "firstName": "Bobby",
+        "lastName": "Miller",
+        "email": "watson.diane@ourcompany.com",
+        "dob": "08/13/1992",
+        "img": "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+    },
+    {
+        "id": 10,
+        "firstName": "Jessica",
+        "lastName": "Diaz",
+        "email": "watson.diane@ourcompany.com",
+        "dob": "02/9/1993",
+        "img": "https://randomuser.me/api/portraits/thumb/women/10.jpg"
+    }
+]

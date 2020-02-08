@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./components/navbar.js";
-import RowOne from "./components/rowOne.js";
+import MagicContainer from "./components/magiccontainer.js";
 
 const App = () => {
     return (
         <div>
             <Navbar />
-            <RowOne />
+            <MagicContainer />
         </div>
     )
 }

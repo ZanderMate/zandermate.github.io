@@ -1,47 +1,18 @@
 import React from "react";
-import "../styles/style.css";
+import CardofDay from "./cardOfDay"
 
-const picSrc = "assets/images/grenzo-card.jpg";
-const cardName = "Grenzo, Dungeon Warden";
-
-const styles = {
-    card: {
-        background: "#E1C932"
-    },
-    resourcePart: {
-        color: "black",
-        textAlign: "center",
-        background: "#E1C932",
-        fontFamily: "'Special Elite', cursive"
-
-    },
-    cardBody: {
-        height: "100%",
-        background: "#FAF9F9"
-    },
-    cardOfDay: {
-        fontFamily: "'Special Elite', cursive"
-    }
-}
-
-const RowOne = () => {
+const MagicContainer = () => {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-3">
-                    <div className="card">
-                        <img className="card-img-top" src={picSrc} alt="CoD"></img>
-                        <div className="card-body" style={styles.card}>
-                            <h5 className="card-text text-center">{cardName}</h5>
-                            <p style={styles.cardOfDay} className="card-text text-center">Card of the Day</p>
-                        </div>
-                    </div>
+                <CardofDay />
                 </div>
                 <div className="col-9">
-                    <h1 className="pt-3" style={styles.resourcePart}>Resources</h1>
+                    <h1 className="pt-3">Resources</h1>
                     <div className="row">
                         <div className="col-4">
-                            <div className="card" style={styles.cardBody}>
+                            <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">Deck-Building</h5>
                                     <ul>
@@ -71,7 +42,7 @@ const RowOne = () => {
                             </div>
                         </div>
                         <div className="col-4">
-                            <div className="card" style={styles.cardBody}>
+                            <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">Gameplay</h5>
                                     <ul>
@@ -95,7 +66,7 @@ const RowOne = () => {
                             </div>
                         </div>
                         <div className="col-4">
-                            <div className="card" style={styles.cardBody}>
+                            <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">Shopping</h5>
                                     <ul>
@@ -116,4 +87,4 @@ const RowOne = () => {
     )
 }
 
-export default RowOne;
+export default MagicContainer;
