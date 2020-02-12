@@ -1,24 +1,68 @@
 import React from "react";
-import EmployeeList from "../data/data.json";
+import "./style.css";
+import data from "../data/data.json";
 
 function EmployeeInfo(props) {
-  console.log(props);
 
-  const results = EmployeeList.filter(employee => employee.firstName.toLowerCase().includes(props.search.toLowerCase()));
+  const results = data.filter(employee => employee.lastName.toLowerCase().includes(props.search.toLowerCase()));
 
   return (
     <div className="text-center">
       {results.length > 0 ? (
-        <ul className="list-group">
-          <h2>Employees</h2>
-          {results.map(result => (
-            <li className="list-group-item" key={result.id}>
-              <img src={result.img} alt={result.firstName} /> {result.firstName} {result.lastName} {result.email} {result.dob}
-            </li>
-          ))}
-        </ul >
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Sort by:</th>
+              <th><button
+                  className="btn"
+                  onClick={() => props.sortBy('firstName')}
+                >
+                  First Name
+                </button></th>
+              <th>
+              <button
+                  className="btn"
+                  onClick={() => props.sortBy('lastName')}
+                >
+                  Last Name
+                </button>
+              </th>
+              <th>
+              <button
+                  className="btn"
+                  onClick={() => props.sortBy('email')}
+                >
+                  Email
+                </button>
+              </th>
+              <th>
+                <button
+                  className="btn"
+                  onClick={() => props.sortBy('dob')}
+                >
+                  DOB
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              results.map(row => (
+                <tr className="employee-info">
+                  <td>
+                    <img src={row.img} alt={row.firstName}></img>
+                  </td>
+                  <td>{row.firstName}</td>
+                  <td>{row.lastName}</td>
+                  <td>{row.email}</td>
+                  <td>{row.dob}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
       ) : (
-          <h2>No Results</h2>
+          <h5>No Employees Follow Those Criteria</h5>
         )}
     </div>
   );

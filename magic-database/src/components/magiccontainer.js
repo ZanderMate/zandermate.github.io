@@ -6,7 +6,7 @@ const MagicContainer = () => {
         <div className="container">
             <div className="row">
                 <div className="col-3">
-                <CardofDay />
+                {/* <CardofDay /> */}
                 </div>
                 <div className="col-9">
                     <h1 className="pt-3">Resources</h1>

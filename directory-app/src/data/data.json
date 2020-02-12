@@ -3,9 +3,10 @@
         "id": 1,
         "firstName": "Ashley",
         "lastName": "Jones",
-        "email": "ashleyjones@ourcompany.com",
+        "email": "a.jones@ourcompany.com",
         "dob": "05/31/1988",
-        "img": "https://randomuser.me/api/portraits/thumb/women/70.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/women/70.jpg",
+        "dept": "IT"
     },
     {
         "id": 2,
@@ -13,70 +14,88 @@
         "lastName": "Henderson",
         "email": "p.henderson@ourcompany.com",
         "dob": "12/17/1986",
-        "img": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/women/54.jpg",
+        "dept": "Sales"
     },
     {
         "id": 3,
         "firstName": "Diane",
         "lastName": "Watson",
-        "email": "watson.diane@ourcompany.com",
-        "dob": "01/3/1997",
-        "img": "https://randomuser.me/api/portraits/thumb/women/48.jpg"
+        "email": "d.watson@ourcompany.com",
+        "dob": "01/03/1997",
+        "img": "https://randomuser.me/api/portraits/thumb/women/48.jpg",
+        "dept": "Management"
     },
     {
         "id": 4,
         "firstName": "Beverly",
         "lastName": "Ross",
-        "email": "Bev.Ross@ourcompany.com",
+        "email": "b.ross@ourcompany.com",
         "dob": "09/27/1970",
-        "img": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/women/4.jpg",
+        "dept": "Human Resources"
     },
     {
         "id": 5,
         "firstName": "Louise",
         "lastName": "Wilson",
-        "email": "wilson.louise@ourcompany.com",
+        "email": "l.wilson@ourcompany.com",
         "dob": "06/23/1972",
-        "img": "https://randomuser.me/api/portraits/thumb/women/51.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/women/69.jpg",
+        "dept": "IT"
     },
     {
         "id": 6,
         "firstName": "Aaron",
         "lastName": "Barnes",
-        "email": "watson.diane@ourcompany.com",
+        "email": "a.barnes@ourcompany.com",
         "dob": "10/12/1979",
-        "img": "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/men/57.jpg",
+        "dept": "Human Resources"
     },
     {
         "id": 7,
         "firstName": "Cheryl",
         "lastName": "Robinson",
-        "email": "watson.diane@ourcompany.com",
+        "email": "c.robinson@ourcompany.com",
         "dob": "10/25/1986",
-        "img": "https://randomuser.me/api/portraits/thumb/women/14.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/women/14.jpg",
+        "dept": "Management"
     },
     {
         "id": 8,
         "firstName": "Scott",
         "lastName": "Clark",
-        "email": "watson.diane@ourcompany.com",
+        "email": "s.clark@ourcompany.com",
         "dob": "10/29/1991",
-        "img": "https://randomuser.me/api/portraits/thumb/men/96.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/men/96.jpg",
+        "dept": "Sales"
     },
     {
         "id": 9,
         "firstName": "Bobby",
         "lastName": "Miller",
-        "email": "watson.diane@ourcompany.com",
+        "email": "b.miller@ourcompany.com",
         "dob": "08/13/1992",
-        "img": "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+        "img": "https://randomuser.me/api/portraits/thumb/men/42.jpg",
+        "dept": "Sales"
     },
     {
         "id": 10,
         "firstName": "Jessica",
         "lastName": "Diaz",
-        "email": "watson.diane@ourcompany.com",
-        "dob": "02/9/1993",
-        "img": "https://randomuser.me/api/portraits/thumb/women/10.jpg"
+        "email": "j.diaz@ourcompany.com",
+        "dob": "02/09/1993",
+        "img": "https://randomuser.me/api/portraits/thumb/women/10.jpg",
+        "dept": "Management"
+    },
+    {
+        "id": 11,
+        "firstName": "Roger",
+        "lastName": "Kiel",
+        "email": "r.kiel@ourcompany.com",
+        "dob": "04/14/1967",
+        "img": "https://randomuser.me/api/portraits/thumb/men/10.jpg",
+        "dept": "IT"
     }
 ]
